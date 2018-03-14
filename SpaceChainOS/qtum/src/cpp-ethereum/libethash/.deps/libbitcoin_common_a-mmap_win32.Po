@@ -1,0 +1,5 @@
+cpp-ethereum/libethash/libbitcoin_common_a-mmap_win32.o: \
+ cpp-ethereum/libethash/mmap_win32.c \
+ /home/user1/user_bin/gcc-linaro-5.3-2016.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h
+
+/home/user1/user_bin/gcc-linaro-5.3-2016.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h:

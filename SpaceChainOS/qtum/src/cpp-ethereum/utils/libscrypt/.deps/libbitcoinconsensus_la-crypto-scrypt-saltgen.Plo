@@ -1,0 +1,5 @@
+cpp-ethereum/utils/libscrypt/libbitcoinconsensus_la-crypto-scrypt-saltgen.lo: \
+ cpp-ethereum/utils/libscrypt/crypto-scrypt-saltgen.c \
+ /home/user1/user_bin/gcc-linaro-5.3-2016.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h
+
+/home/user1/user_bin/gcc-linaro-5.3-2016.02-x86_64_arm-linux-gnueabihf/arm-linux-gnueabihf/libc/usr/include/stdc-predef.h:

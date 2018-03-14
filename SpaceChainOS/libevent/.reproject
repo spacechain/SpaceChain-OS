@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSAppProject" RealEvoVer="3.6.0 Ultimate"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<BuildSetting CoustomCfgMakefile="true" NeedReBuild="false" NotScanSourceFile="false"/>
+<UploadPath>
+<PairItem key="$(WORKSPACE_libevent)\$(Output)\strip\libevent.so" value="/lib/libevent.so"/>
+<PairItem key="$(WORKSPACE_libevent)\$(Output)\strip\libevent_core.so" value="/lib/libevent_core.so"/>
+<PairItem key="$(WORKSPACE_libevent)\$(Output)\strip\libevent_extra.so" value="/lib/libevent_extra.so"/>
+<PairItem key="$(WORKSPACE_libevent)\$(Output)\strip\libevent_pthreads.so" value="/lib/libevent_pthreads.so"/>
+</UploadPath>
+<DeviceSetting DevName="10.4.0.58" WorkDir="/apps/libevent"/>
+</SylixOSSetting>

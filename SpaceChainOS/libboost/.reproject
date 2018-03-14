@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSSoProject" RealEvoVer="3.6.0 Ultimate"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<BuildSetting CoustomCfgMakefile="true" NeedReBuild="false" NotScanSourceFile="false"/>
+<UploadPath>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_atomic.so" value="/lib/libboost_atomic.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_chrono-mt-s.so" value="/lib/libboost_chrono-mt-s.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_filesystem.so" value="/lib/libboost_filesystem.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_program_options-d.so" value="/lib/libboost_program_options-d.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_random-mt-s.so" value="/lib/libboost_random-mt-s.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_system.so" value="/lib/libboost_system.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_thread-mt-sd.so" value="/lib/libboost_thread-mt-sd.so"/>
+<PairItem key="$(WORKSPACE_libboost)\$(Output)\strip\libboost_unit_test_framework.so" value="/lib/libboost_unit_test_framework.so"/>
+</UploadPath>
+<DeviceSetting DevName="10.4.0.58" WorkDir="/lib"/>
+</SylixOSSetting>
