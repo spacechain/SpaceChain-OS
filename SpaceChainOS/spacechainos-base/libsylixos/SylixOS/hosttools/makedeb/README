@@ -1,0 +1,1 @@
+运行 makedeb.bat(windows)或者 makedeb.sh(linux) 批处理, 参数1为需要打包的应用程序文件夹, 参数2为输出deb文件, 需要打包的文件夹下必须包含DEBIAN和data两个子目录, DEBIAN目录下至少要包含control文件, 如需要可包含其他脚本程序和脚本启动的可执行程序, data目录下为需要安装的程序文件, sylixos在安装deb程序时, 默认从根目录开始安装, 即将 data 目录下视为根目录. 详细情况请参阅 deb 文件格式文档.

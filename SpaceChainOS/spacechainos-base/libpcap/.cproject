@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="org.eclipse.cdt.core.default.config.1765460272">
+			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1765460272" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
+		<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
+		<pathentry kind="mac" name="SYLIXOS" path="" value=""/>
+		<pathentry kind="mac" name="__x86_64__" path="" value=""/>
+		<pathentry kind="mac" name="BUILDING_PCAP" path="" value="1"/>
+		<pathentry kind="mac" name="HAVE_CONFIG_H" path="" value="1"/>
+		<pathentry kind="mac" name="_U_" path="" value="&quot;__attribute__((unused))&quot;"/>
+		<pathentry base-ref="libpcap" include="D:/SylixOSDev/workspace_x86/sylixos-base-x64/libsylixos/SylixOS" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="D:/SylixOSDev/workspace_x86/sylixos-base-x64/libsylixos/SylixOS/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="D:/SylixOSDev/workspace_x86/sylixos-base-x64/libsylixos/SylixOS/include/network" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="D:/SylixOSDev/workspace_x86/sylixos-base-x64/libcextern/libcextern/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="C:/ACOINFO/RealEvo/compiler/x86_64-sylixos-toolchain/x86_64-sylixos-elf/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="C:/ACOINFO/RealEvo/compiler/x86_64-sylixos-toolchain/lib/gcc/x86_64-sylixos-elf/4.9.3/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libpcap" include="libpcap" kind="inc" path="" system="true"/>
+	</storageModule>
+</cproject>

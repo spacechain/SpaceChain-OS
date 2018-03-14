@@ -1,0 +1,7 @@
+11:46 2016-1-12
+
+--SylixOS--
+
+1: here is AHCI(Serial ATA Advanced Host Controller Interface) driver.
+   SylixOS AHCI driver support PCIe-AHCI card and localbus AHCI controlor.
+   Support SATA2.0 SATA3.0 HDD, SSD.

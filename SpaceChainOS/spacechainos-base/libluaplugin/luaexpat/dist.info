@@ -1,0 +1,15 @@
+--- This file is part of LuaDist project
+
+name = "luaexpat"
+version = "1.3.0"
+
+desc = "LuaExpat is a SAX (Simple API for XML) XML parser based on the Expat library."
+author = "Roberto Ierusalimschy, André Carregal, Tomás Guisasola"
+license = "MIT/X11"
+url = "http://www.keplerproject.org/luaexpat/"
+maintainer = "Peter Drahoš"
+
+depends = {
+	"lua >= 5.1, < 5.3",
+	"libexpat >= 2.0"
+}

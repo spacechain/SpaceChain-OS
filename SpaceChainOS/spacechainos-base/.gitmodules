@@ -1,0 +1,45 @@
+[submodule "libsylixos"]
+	path = libsylixos
+	url = http://git.sylixos.com/repo/libsylixos.git
+[submodule "libcextern"]
+	path = libcextern
+	url = http://git.sylixos.com/repo/libcextern.git
+[submodule "libVxWorks"]
+	path = libVxWorks
+	url = http://git.sylixos.com/repo/libVxWorks.git
+[submodule "liblua"]
+	path = liblua
+	url = http://git.sylixos.com/repo/liblua.git
+[submodule "libreadline"]
+	path = libreadline
+	url = http://git.sylixos.com/repo/libreadline.git
+[submodule "libsqlite3"]
+	path = libsqlite3
+	url = http://git.sylixos.com/repo/libsqlite3.git
+[submodule "pciutils"]
+	path = pciutils
+	url = http://git.sylixos.com/repo/pciutils.git
+[submodule "libzmodem"]
+	path = libzmodem
+	url = http://git.sylixos.com/repo/libzmodem.git
+[submodule "libluaplugin"]
+	path = libluaplugin
+	url = http://git.sylixos.com/repo/libluaplugin.git
+[submodule "libexpat"]
+	path = libexpat
+	url = http://git.sylixos.com/repo/libexpat.git
+[submodule "libsunrpc"]
+	path = libsunrpc
+	url = http://git.sylixos.com/repo/libsunrpc.git
+[submodule "unfsd"]
+	path = unfsd
+	url = http://git.sylixos.com/repo/unfsd.git
+[submodule "libsalsa"]
+	path = libsalsa
+	url = http://git.sylixos.com/repo/libsalsa.git
+[submodule "libpcap"]
+	path = libpcap
+	url = http://git.sylixos.com/repo/libpcap.git
+[submodule "openssl"]
+	path = openssl
+	url = http://git.sylixos.com/repo/openssl.git

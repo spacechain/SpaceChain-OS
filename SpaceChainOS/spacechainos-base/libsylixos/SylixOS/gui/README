@@ -1,0 +1,7 @@
+23:26 2009-2-23
+
+--SylixOS--
+
+1: here is SylixOS GUI(graph user interface)
+
+2: In order to facilitate the GUI transplantation, SylixOS provides multiple mouse, touchscreen, keyboard input device of comprehensive management interface in /input_device.

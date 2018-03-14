@@ -1,0 +1,47 @@
+11:27 2012-8-22
+
+--SylixOS--
+
+etc 文件夹下的标准文件
+
+发行商 LOGO:
+oemlogo
+
+用户管理: 
+passwd
+group
+shadow
+
+登陆配置
+login.defs
+
+开机自动启动
+startup.sh
+
+环境变量保存
+profile
+
+触摸屏默认配置文件
+pointercal
+
+ODBC配置文件
+odbc.ini
+odbcinst.ini
+
+PPP拨号配置
+ppp/config.ini
+
+网络配置
+netcfg.ini
+ifparam.ini
+resolv.conf
+
+网络libc相关 (请查阅相关UNIX文档)
+hosts.equiv
+hosts
+networks
+protocols
+services
+
+term转义字符放在 (http://rpmfind.net/linux/rpm2html/search.php?query=%2Fetc%2Ftermcap)
+termcap

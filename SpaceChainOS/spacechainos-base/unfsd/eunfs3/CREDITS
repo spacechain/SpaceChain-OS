@@ -1,0 +1,42 @@
+CREDITS
+=======
+
+The design of unfs3's filehandle code owes much to the original NFSv2
+universal user-space NFS server. Thanks to Mark Shand and Don Becker
+for coming up with those concepts.
+
+We also give credit to Gregory R. Warnes for the idea of file
+tagging as used by ClusterNFS and the unfs3 cluster extension.
+
+People who contributed ideas, suggestions, or code to UNFS3:
+
+- Bernd Schubert <bernd-schubert@web.de>
+- Avery Pennarun <apenwarr@nit.ca>
+- Juergen Brendel <juergen@brendel.com>
+- Peter Astrand <astrand@cendio.se>
+- Igor Durdanovic <idurdanovic@comcast.net>
+- Jan P. Springer <jsd01@users.sourceforge.net>
+- Thomas Schwinge <schwinge@nic-nac-project.de>
+- Simon Matter <simix@users.sourceforge.net>
+- Brian <bohalloran@users.sourceforge.net>
+- Jean Aumont <JeanAumont@videotron.ca>
+- Constantin Scheder <scheder@nirvanastorage.com>
+- Sam Sharma <sam.sharma@gat.com>
+- Holger Wolf <Holger.Wolf@de.ibm.com>
+- Frank v Waveren <fvw@var.cx>
+- Matthew Bloch <matthew@bytemark.co.uk>
+- Nick S. Grechukh <gns@altlinux.org>
+- Michael Shigorin <mike@osdn.org.ua>
+- Tim Weippert <tim.weippert@tds.de>
+- Hanpen-san <hanpen@lopox.com>
+- Sergey Bolshakov <sbolshakov@altlinux.ru>
+- Phill Bertolus <phillb@webwombat.com>
+- Brent A Nelson <brent@phys.ufl.edu>
+- Garrett Cooper <garrcoop@cisco.com>
+- Wesley Shields <wxs@FreeBSD.org>
+- Bernhard Duebi <Bernhard.Duebi@telekurs.com>
+- Daniel Richard G. <skunk@iSKUNK.ORG>
+- Michael Tokarev <mjt@tls.msk.ru>
+- Dai Lin <dai_lin@163.com>
+- Karl Mikaelsson <derfian@cendio.se>
+- Jason Wessel <jason.wessel@windriver.com>

@@ -1,0 +1,15 @@
+--- This file is part of LuaDist project
+
+name = "luatask"
+version = "1.6.4"
+
+desc = "LuaTask - Multitasking support Library"
+author = "Daniel Quintela"
+license = "MIT"
+url = "http://luatask.luaforge.net/"
+maintainer = "Peter Kapec"
+
+depends = {
+	"lua ~> 5.1",
+-- ? 	"pthreads"
+}

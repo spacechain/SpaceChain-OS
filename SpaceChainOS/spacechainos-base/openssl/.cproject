@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="org.eclipse.cdt.core.default.config.1870711315">
+			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1870711315" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
+		<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
+		<pathentry kind="mac" name="SYLIXOS" path="" value=""/>
+		<pathentry kind="mac" name="__PPC__" path="" value=""/>
+		<pathentry kind="mac" name="MONOLITH" path="" value=""/>
+		<pathentry kind="mac" name="OPENSSL_PIC" path="" value=""/>
+		<pathentry kind="mac" name="OPENSSL_THREADS" path="" value=""/>
+		<pathentry kind="mac" name="_REENTRANT" path="" value=""/>
+		<pathentry kind="mac" name="DSO_DLFCN" path="" value=""/>
+		<pathentry kind="mac" name="HAVE_DLFCN_H" path="" value=""/>
+		<pathentry kind="mac" name="B_ENDIAN" path="" value=""/>
+		<pathentry kind="mac" name="B_ENDIAN" path="" value=""/>
+		<pathentry kind="mac" name="L_ENDIAN" path="" value=""/>
+		<pathentry base-ref="openssl" include="D:/SylixOSDev/workspace_ppc/sylixos-base-750/libsylixos/SylixOS" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="D:/SylixOSDev/workspace_ppc/sylixos-base-750/libsylixos/SylixOS/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="D:/SylixOSDev/workspace_ppc/sylixos-base-750/libsylixos/SylixOS/include/network" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="D:/SylixOSDev/workspace_ppc/sylixos-base-750/libcextern/libcextern/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="D:/ACOINFO/RealEvo/compiler/ppc-sylixos-toolchain/ppc-sylixos-eabi/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="D:/ACOINFO/RealEvo/compiler/ppc-sylixos-toolchain/lib/gcc/ppc-sylixos-eabi/4.9.3/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="openssl" kind="inc" path="" system="true"/>
+		<pathentry base-ref="openssl" include="openssl/include" kind="inc" path="" system="true"/>
+	</storageModule>
+</cproject>

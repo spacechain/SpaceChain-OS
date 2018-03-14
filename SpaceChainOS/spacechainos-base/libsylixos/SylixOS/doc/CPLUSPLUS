@@ -1,0 +1,73 @@
+0:21 2011-3-9
+
+--SylixOS--
+
+使用 C++ 开发 SylixOS 应用
+
+1:
+SylixOS 自带一个小型的 C++ 运行时库, 可以满足基本的 C++ 程序开发需求. 但不支持异常/抛出异常之类的操作. (应用程序可通过连接 stdc++ 库来支持标准C++程序, 内核则不支持)
+
+所以在对应的 C++ 编译器中需要设置相应的参数来关闭 C++ 的异常处理.
+
+这里需要注意的是:
+
+  编译器(gcc)编译 C++ 工程时, 如果存在全局对象, 那么全局对象的构建函数指针会放在可执行 elf 文件的 .ctors 
+  节区(section), 析构函数会放在可执行 elf 文件的 .dtors 节区, 一般标准 gcc 库会引出四个符号:
+   
+  __CTOR_LIST__
+  __CTOR_END__
+  __DTOR_LIST__
+  __DTOR_END__
+   
+  其中 __CTOR_LIST__ 表示所有的全局对象构造函数指针数组的首地址, 起始指针为 0xFFFFFFFF, 之后的每一项为
+  一个构造函数的入口, 直到 __CTOR_END__ 为止, __CTOR_END__ 指向的函数指针为 0x00000000
+  
+  其中 __DTOR_LIST__ 表示所有的全局对象析构函数指针数组的首地址, 起始指针为 0xFFFFFFFF, 之后的每一项为
+  一个析构函数的入口, 直到 __DTOR_END__ 为止, __DTOR_END__ 指向的函数指针为 0x00000000
+  
+  C++运行时库就实现了这个 4 个符号类似的定义. 这样系统就可以在运行用户程序之前, 初始化 C++ 环境, 运行全局
+  对象的构造函数, 在系统 reboot 时, 运行系统的析构函数.
+  
+  如果要让这些符号处于对应 .ctors 和 .dtors 节区指定的位置, 则需要在连接文件加入一下代码(gcc工具链):
+  
+  .ctors :
+  {
+      KEEP (*cppRtBegin*.o(.ctors))
+      KEEP (*(.preinit_array))
+      KEEP (*(.init_array))
+      KEEP (*(SORT(.ctors.*)))
+      KEEP (*(.ctors))
+      KEEP (*cppRtEnd*.o(.ctors))
+  }
+  
+  .dtors :
+  {
+      KEEP (*cppRtBegin*.o(.dtors))
+      KEEP (*(.fini_array))
+      KEEP (*(SORT(.dtors.*)))
+      KEEP (*(.dtors))
+      KEEP (*cppRtEnd*.o(.dtors))
+  }
+  
+  以上链接脚本, 将需要的符号定义到了 .ctors .dtors 节区对应的位置 (分别定义到了这两个节区的首尾)
+  (其中 .init_array 和 .fini_array 分别是构建和析构具有静态存储时限的对象)
+  
+  注意:
+  
+  由于操作系统是在调用用户之前, 就运行了全局对象构造函数, 此时并没有进入多任务环境, 所以对象的构造函数一定
+  要足够的简单, 一般仅是用来初始化对象的属性和一些基本数据结构, 更多的操作可以在类中加入专门的初始化方法
+  来实现.
+
+  为了和一些编译器不产生冲突, 这里使用 SylixOS 自带的符号:
+
+  __LW_CTOR_LIST__
+  __LW_CTOR_END__
+  __LW_DTOR_LIST__
+  __LW_DTOR_END__
+  
+2: GCC 编译的 C++ 程序需要存在一个 __dso_handle 符号, 这个符号的功能详情请查看 SylixOS c++ 运行时库的代码
+
+   如果应用程序用到此符号, 则需要连接 dsohandle 库, 名为 libdsohandle.a 此库必须为静态链接库, 具体代码在 SylixOS 根目录下
+   
+   dsohandle 目录中
+   

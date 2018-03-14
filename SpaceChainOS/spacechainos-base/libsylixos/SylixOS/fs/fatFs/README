@@ -1,0 +1,60 @@
+23:26 2009-2-23
+
+--SylixOS--
+
+port FatFs need change some code as following:
+
+1: change some setting ff.h & ffconf.h fix sylixos. (DIR -> FATDIR)
+
+   ffconf.h do not need _FS_LOCK and FAST_SEEK option.
+
+2: change code file(OEM code), do not report error.
+
+3: change ff.c file:
+
+   1. f_mount() add : FRESULT f_mount_ex (FATFS* fs, BYTE vol);
+
+   2. chang some function (use path to operat) : such as :
+
+      f_open, f_opendir, f_unlink, f_mkdir, f_chmod, f_utime...
+
+      add : dj.fs = NULL;        /* Clear file object */
+
+   3. add some function, first param is FATFS.
+
+      FRESULT f_open_ex (FATFS*, FIL*, uint64_t *uniq, const char*, BYTE);
+      FRESULT f_opendir_ex (FATFS*, FATDIR*, uint64_t *uniq, const char*);
+      FRESULT f_stat_ex (FATFS*, const char*, FILINFO*);
+      FRESULT f_unlink_ex (FATFS*, const char*);
+      FRESULT f_mkdir_ex (FATFS*, const char*);
+      FRESULT f_chmod_ex (FATFS*, const char*, BYTE, BYTE);
+      FRESULT f_utime_ex (FATFS*, const char*, const FILINFO*);
+      FRESULT f_rename_ex (FATFS*, const char*, const char*);
+      FRESULT f_getlabel_ex (FATFS *fs, const TCHAR* path, TCHAR* label, DWORD* vsn);
+      FRESULT f_setlabel_ex (FATFS *fs, const TCHAR* label);
+      FRESULT f_syncfs (FATFS *fs);
+      
+      f_open_ex and opendir_ex and get ino! 
+
+   4: change f_mkfs() NFAT define (LW_CFG_...NFAT)
+      
+          1) change CHAR *path to BYTE vol;
+          2) const UINT n_fats = LW_CFG_FATFS_NFATS;
+
+   5: check_fs() fix to ADS
+
+   6: mem_cpy() mem_set() can use memcpy() memset() (FASTER)
+
+   7: change find_volume()
+   
+   8: remove the following code:
+      #if _VOLUMES < 1 || _VOLUMES > 9
+      #error Wrong _VOLUMES setting
+      #endif
+      
+   9: FILINFO add fcdate fctime file create time
+      change get_fileinfo() and get_xdir_info() to get file create time
+      
+  10: change f_mkfs() to FRESULT f_mkfs (BYTE vol, BYTE sfd, UINT au);
+  
+  11: f_getfree() add fs = *fatfs; at begining. 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="org.eclipse.cdt.core.default.config.1175210512">
+			<storageModule buildSystemId="org.eclipse.cdt.core.defaultConfigDataProvider" id="org.eclipse.cdt.core.default.config.1175210512" moduleId="org.eclipse.cdt.core.settings" name="Configuration">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="org.eclipse.cdt.core.pathentry">
+		<pathentry kind="mac" name="__GNUC__" path="" value="4"/>
+		<pathentry kind="mac" name="SYLIXOS" path="" value=""/>
+		<pathentry kind="mac" name="__i386__" path="" value=""/>
+		<pathentry base-ref="libsalsa" include="D:/SylixOSDev/workspace_x86/sylixos-base/libsylixos/SylixOS" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="D:/SylixOSDev/workspace_x86/sylixos-base/libsylixos/SylixOS/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="D:/SylixOSDev/workspace_x86/sylixos-base/libsylixos/SylixOS/include/network" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="D:/SylixOSDev/workspace_x86/sylixos-base/libcextern/libcextern/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="C:/ACOINFO/RealEvo/compiler/x86-sylixos-toolchain/i386-sylixos-elf/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="C:/ACOINFO/RealEvo/compiler/x86-sylixos-toolchain/lib/gcc/i386-sylixos-elf/4.9.3/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="libsalsa/include" kind="inc" path="" system="true"/>
+		<pathentry base-ref="libsalsa" include="libsalsa/include/alsa" kind="inc" path="" system="true"/>
+	</storageModule>
+</cproject>

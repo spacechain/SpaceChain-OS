@@ -1,0 +1,132 @@
+20:34 2009-3-5
+
+--SylixOS--
+
+overview:
+SylixOS(TM) [www.sylixos.com] is real-time operating system, that support SMP and MPI multiprocessor.
+Longwind(TM) is SylixOS kernel name.
+
+1: here is SylixOS source code root directory.
+
+compiler:
+1: compiler SylixOS:
+    It is recommended to use GCC, of course, you can also use arm-cc or other C compiler.
+    If you use GCC and have 'make' tools, you can use 'make all' command compiler SylixOS source code.
+    If you use other C compiler, you must see SylixOS Makefile file and setting the compiler paramter like this.
+    For example, you must add the following path into the compiler default search path:
+    
+    1: "SylixOS"
+    2: "SylixOS/include"
+    3: "SylixOS/include/network"
+    ...
+    
+2: compiler application:
+    It is recommended that you can use our 'helloword' project Makefile template.
+
+----------------------------------------------------------------------------------------------------------------------
+Note that if not SYLIXOS macro has been defined, you must define SYLIXOS preprocessor macro.
+    For example: -DSYLIXOS
+----------------------------------------------------------------------------------------------------------------------
+
+WARNING:
+
+1: you must not use the compiler option : "-fpack-struct".
+
+2: you must use the compiler option : "-fno-short-enums". 
+
+   it can maintaining SDL(Simple DirectMedia Layer) binary compatibility.
+   
+----------------------------------------------------------------------------------------------------------------------
+
+VFP:
+
+kernel MUST NOT compiler with VFP instructions!
+
+    For example: Using ARM architecture:
+
+1: if you used arm cpu without VFP, you must use the compiler option : "-mfloat-abi=soft". to compile kernel, module, bsp, drivers
+
+   if you use arm VFP, you must use the compiler option : "-mfloat-abi=softfp" to maintain compatibility with the "-mfloat-abi=soft"
+   
+   if you use arm VFP, you can use the compiler option : "-mfpu=?" to choose the VFP code type.
+
+----------------------------------------------------------------------------------------------------------------------
+23:05 2009-4-18
+
+   SylixOS 作者 2005 年毕业于西安科技大学测控技术专业, 是一名操作系统业余爱好者, 在学习与工作之余设计了本套操作系统. 
+
+   内核相关代码早在作者大四初就已经开始编写, 经过了很多次失败, 险些放弃, 但最终还是坚持下来了. 由于限于当时的编程水平, 
+
+所以在早期的内核代码中, 很多对象的抽象没有做的很好, 而且对公共对象行为的封装做的很不够, 这也恰恰是作者成长的历程... 
+
+   SylixOS 商业授权请参考 license/LICENSE 文件.
+
+   email:hanhui@acoinfo.com
+
+----------------------------------------------------------------------------------------------------------------------
+0:44 2011-7-8
+
+   关于开源软件: SylixOS 采用了众多开源软件的设计思想与源码, 作者(们)同时非常感激为开源事业奋斗的人们, 我们深知如果没有
+
+众多开源社区与形形色色的开源软件, 就没有软件今天的繁荣, 正因如此我们也将持续为社区贡献微薄的力量.
+
+----------------------------------------------------------------------------------------------------------------------
+23:02 2012-3-16
+
+   当前 SylixOS 内核的开发工作已经基本告于段落, 版本为 0.9.9-0232 . 此版本已经是较为成熟的系统, 实际应用已超过 20 个项目.
+
+涵盖工业, 军用, 民用, 新能源领域, 其中多个项目产品已出口到美国, 日本等国家. 还有一些已装备到我国现代化军事工业产品上.
+
+即日起, 作者(韩辉)决定 SylixOS 开始转战一项全新的, 富有挑战意义的工作: SMP 支持. 
+
+使用测试处理器为 S5PV310 (ARM Cortex-A9) SMP 双核处理器. 项目代号: [双子星座(GEMINI)]. 
+
+早在 2009 年, 韩辉已经为 SylixOS 支持 SMP 做了大量的工作, 其中包括全世界独一无二的多核硬实时调度器, 但是一直没有经过验证. 
+
+从即日起, 将开始在 S5PV310 处理器上进行验证, 同时由于设计之初为了兼容性和移植方便, SylixOS 采用了 uC/OS-II BSP 接口, 
+
+此次为了适应 SMP 作者计划微调一些 BSP 函数接口, 但尽量保持与之前版本的一致性. 
+
+最后, 预祝 [双子星座(GEMINI)] 计划圆满成功!
+
+17:14 2014-11-9
+
+    双子星座(GEMINI) 计划圆满成功! SylixOS 目前已经成功运行 ARM Cortex-A9 SMP 四核处理器上，
+    
+    处理器型号为 Freescale i.MX6 Qual-Core 1.2GHz.
+
+----------------------------------------------------------------------------------------------------------------------
+10:14 2015-11-14
+    
+    SylixOS 目前已经成功运行在 China Phytium(R) 1500A ARMv8 SMP 16 核处理器上. 
+    
+    从此中国拥有了全国产化的高性能实时系统平台.
+----------------------------------------------------------------------------------------------------------------------
+10:14 2015-11-20
+    
+    SylixOS 开始进行多平台支持, 包括: MIPS  PowerPC  x86 处理器, 项目代号: [哪吒(NeZha)].
+    
+    哪吒(汉语拼音： nézhā), 亦作那咤, 是中国古代汉族神话传说人物之一, 拥有三头六臂的本领, 
+    
+    寓意 SylixOS 支持更多的 CPU 平台.
+
+----------------------------------------------------------------------------------------------------------------------
+10:14 2016-10-08
+    
+    哪吒(NeZha) 计划已圆满成功, 目前 SylixOS 支持: MIPS  PowerPC  x86 ARM 处理器架构.
+    
+    SylixOS 经历 10 年发展, 开始走向成熟, 为配合全新第三代集成开发环境发布, 修改项目代号为: [龙渊(LongYuan)].
+    
+    寓意 SylixOS 10 年磨一剑.
+
+----------------------------------------------------------------------------------------------------------------------
+18:49 2018-01-18
+
+    SylixOS 开始支持全功能核心网路由技术, 升级项目代号: Octopus(八爪鱼).
+    
+----------------------------------------------------------------------------------------------------------------------
+23:58 2009-5-12
+
+    特别感谢: 
+
+    广州致远电子股份有限公司, 广州周立功单片机科技有限公司董事长兼总经理: 周立功 教授.

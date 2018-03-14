@@ -1,0 +1,245 @@
+What's new or changed in 0.9.23
+===============================
+
+Daniel Richard G. provided a large patch to allow better
+support for exporting files from AFS network filesystems.
+The new code provides the basis for avoiding inode number
+clashes on AFS files, which could otherwise lead to clients
+confusing different files.
+
+Integrated a patch from Michael Tokarev for using
+svc_getreq_poll() when provided by the operating system.
+
+Applied a patch from Dai Lin to allow serving files larger
+than 4GB from Windows.
+
+
+ChangeLog
+=========
+
+Version 0.9.23
+
+  - include AFS support for better serving of files from AFS filesystems
+  - use svc_getreq_poll() when available
+  - fix serving files larger than 4GB from Windows
+
+Version 0.9.22
+
+  - fix spelling mistake in "no_all_squash" export option parsing
+  - fix build on more recent FreeBSD systems
+  - fix filesystem size reporting for Solaris Zones and others
+  - document permission needs for exported directories
+
+Version 0.9.21
+
+  - avoid returning large fileids on Windows, for better compatibility
+    with clients such as Linux 2.6.24
+  - try to prevent races between READDIR and removal of files
+
+Version 0.9.20
+
+  - fix LOOKUP permission reporting on execute-bit-only directories
+  - fix writing of files opened for writing with intervening chmod -w
+  - fix reading of files opened for reading with intervening chmod -r
+
+Version 0.9.19
+
+  - fix chown operation on symbolic links
+  - fix auxiliary group support
+
+Version 0.9.18
+
+  - add support for writing a pid file with the -i option
+  - fix atomic_attr() to respect uid/gid squashing
+  - add -T option for doing test parse of the exports file
+
+Version 0.9.17
+
+  - add support for 64 bit inode numbers
+  - the returned "fileid" is now equal to the file's real inode number
+  - fix ACCESS and read_executable to stop adding permissions when user or 
+    group matches
+  - report unreadable executables as unreadable unless -r is used
+  - support for using larger read and write sizes: up to 32K for UDP and 
+    512K for TCP
+  - add support for "anonuid" and "anongid" export options
+  - add Windows support
+  - improve error reporting for WRITE and COMMIT requests
+  - improve file descriptor cache to not keep files open forever
+
+Version 0.9.16
+
+  - add support for "insecure" and "secure" export options
+  - do not abort daemon on RPC or XDR failures
+
+Version 0.9.15
+
+  - only allow mount requests from source ports below 1024
+
+Version 0.9.14
+
+  - accept SET_TO_SERVER_TIME in object creation calls
+  - update maintainer email address
+
+Version 0.9.13
+
+  - add support for CREATE EXCLUSIVE procedure call
+  - fix some minor compiler warnings
+
+Version 0.9.12
+
+  - add option for binding to a specified interface
+  - lots of compile fixes for Solaris/AIX/Irix/Mac OS X
+  - make redirection of operating system calls possible
+  - fix READDIR error reporting
+  - fix handling of . and .. lookups for Irix clients
+
+Version 0.9.11
+
+  - handle case where a tagged file exists but the master file doesn't
+  - make clustering work in non-readable directories
+  - make filehandle resolution work on non-readable directories
+  - fix file creation by Solaris NFS clients
+
+Version 0.9.10
+
+  - fix building with gcc 2.95.x or 2.96
+  - make ALWAYS cluster tag take effect for file creations
+  - fix possible use-after-free bug in fh.c:fh_rec
+
+Version 0.9.9
+
+  - add support for mount passwords, for use with secure links
+  - make exports parser accept dashes in hostnames and leading whitespace
+  - fix debug mode to use line buffering, useful for redirections
+  - make exporting of (automounted) removable media possible
+
+Version 0.9.8
+
+  - fix cache LRU algorithm, could lead to unreliable operations once
+    the filehandle cache filled up
+
+Version 0.9.7
+
+  - make renames across directories not cause stale filehandles
+  - allow clients to read files they only have execute permission for
+  - lift restrictions on attribute setting
+  - fix bug in special-casing of root directory filehandles
+  - add file$$$$ tag to clustering extensions
+
+Version 0.9.6
+
+  - run the source through indent to improve style consistency
+  - fix bug in READDIR that resulted in truncated replies
+  - add options to specify which ports and protocols to use
+
+Version 0.9.5
+
+  - code cleanups, remove now impossible cases (stale filehandles)
+  - fix bug in READDIR that could return EOF one entry too early
+
+Version 0.9.4
+
+  - support the DUMP and EXPORT mount protocol procedures
+  - use a simple counter instead of the system time for cache LRU
+  - document tagged files in a seperate manpage, tags(7)
+  - introduce a new ALWAYS tag for forced redirection
+
+Version 0.9.3
+
+  - fix mount handler not properly initializing return status 
+  - send messages to syslog for some mount problems
+  - make it possible to export and mount symlinks to directories
+  - fix cluster extensions breakage from 0.9.1 code merge
+  - prevent filehandle cache from storing redundant information
+
+Version 0.9.2
+
+  - clean up lots of duplicate code in nfs.c
+  - move configuration parser and cluster extensions into subdirectories
+  - use real write verifier in WRITE and COMMIT
+
+Version 0.9.1
+
+  - add -d option to prevent forking into background (for debugging)
+  - merge in lots of cleaner code from the experimental branch
+  - merge nfsd and mountd into one program
+  - better /etc/exports parser using lex and yacc
+
+Version 0.9.0
+
+  - check for clients attempting to use invalid pathnames
+  - include cluster extensions (optional at compile and run time)
+
+Version 0.8.8
+
+  - fix ACCESS compatibility problem affecting HP-UX clients
+
+Version 0.8.7
+
+  - fixed chmod handling to make us pass the Connectathon 2003 NFS
+    testsuite's "basic" and "general" tests
+  - improve filehandle integrity checking
+
+Version 0.8.6
+
+  - use inode generation numbers only in SETATTR and fd cache because
+    it is a huge performance hit everywhere else
+  - use 32 bit device and inode numbers to save space in filehandles
+  - have nfsd bind to port number 2049 (nfs) by default
+
+Version 0.8.5
+
+  - undo refusal to use "." and ".." since it confuses NetBSD clients
+  - include inode generation number in filehandles whenever possible
+
+Version 0.8.4
+
+  - handle export of the root directory correctly
+  - return XDEV error in RENAME and LINK if export options for given
+    objects do not match (needed for squash options differences)
+  - prevent the use of "." and ".." as names
+  - use largefile API to enable access to files greater than 2 GB
+  - check filehandles for integrity before using them
+  - we no longer need GNU make
+
+Version 0.8.3
+
+  - use shorter filehandles whenever possible
+  - use stat cache in unfs3_readdir()
+  - switch filehandle cache to use static allocation of entries
+  - make unfs3_readdir() account for XDR overhead correctly
+
+Version 0.8.2
+
+  - simplify and speed up low-level filehandle routines
+  - fix a serious bug in READDIR, cookie == 0 was handled incorrectly
+  - make it build and run on NetBSD 1.6.1/i386
+
+Version 0.8.1
+
+  - use svc_getcaller instead of our own hack (well, duh)
+  - don't attempt to service v1 mount calls, only v1 umount
+  - check incoming object names for validity
+
+Version 0.8
+
+  - support for export controls via /etc/exports
+  - introduce caching of stat() results to improve performance
+  - explicitly check for gcc in the configure script
+  - make user/group id squashing be based on export options
+  - remove the now obsolete -r and -a nfsd options
+
+Version 0.7
+
+  - attempt at race protection/detection code for many NFS procedures
+  - add comments to all error code paths
+
+Version 0.6.1
+
+  - document possible races with local fs activity on server
+  - minor fix in LOOKUP error handling
+
+Version 0.6
+
+  - initial public release

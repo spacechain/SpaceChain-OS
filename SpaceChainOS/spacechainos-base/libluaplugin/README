@@ -1,0 +1,5 @@
+1: lua 调试命令 lua -e "require('debugger')('192.168.7.2');" /apps/lua/test/main.lua
+   注意被调试文件必须写为完整路径, 否则调试器不能识别路径.
+   
+2: 调试器使用：Lua Attach to Application, 配置 Source mapping 使用 Replace path resolution
+   配置的内容为 /apps/lua/test/ 同时选择 Break on first line。

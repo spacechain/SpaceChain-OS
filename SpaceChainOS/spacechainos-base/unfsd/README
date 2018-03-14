@@ -1,0 +1,28 @@
+
+1. 怎么去启动 nfs 服务器:
+
+先启动 portmap 服务器:
+portmap &
+
+先启动 nfs 服务器:
+unfsd -d -s &
+
+2. 怎么去挂载 nfs :
+
+mount -t nfs 127.0.0.1:/media /mnt/nfs
+
+3. 怎么去配置 nfs 服务器:
+
+修改 /etc/exports 文件, 示例如下:
+
+[/media]
+ipnet=127.0.0.0/255.255.255.0
+opt=rw
+
+其中 /media 是需要 export 的目录.
+ 
+ipnet 是允许连接的客户端 ip 基地址与网段掩码，使用 '/' 线分隔.
+
+opt 是选项, 支持的选项有:
+rw 可读写的权限 
+ro 只读的权限

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.sylixos.realcoder.toolChain.armsylixeabi.441391238">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.sylixos.realcoder.toolChain.armsylixeabi.441391238" moduleId="org.eclipse.cdt.core.settings" name="Default">
+				<macros>
+					<stringMacro name="SYLIXOS_TOOLCHAIN_PATH" type="VALUE_PATH_DIR" value="F:\ACOINFO\arm-sylixos-toolchain"/>
+					<stringMacro name="SYLIXOS_TEMPLATE_ARCH" type="VALUE_TEXT"/>
+					<stringMacro name="SYLIXOS_TOOLCHAIN_VER" type="VALUE_TEXT" value="4.9.3"/>
+					<stringMacro name="SYLIXOS_TOOLCHAIN_PREFIX" type="VALUE_TEXT" value="arm-sylixos-eabi"/>
+					<stringMacro name="SYLIXOS_BASE_PATH" type="VALUE_PATH_DIR" value=".."/>
+					<stringMacro name="SYLIXOS_TEMPLATE_NAME" type="VALUE_TEXT"/>
+				</macros>
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.GNU_ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.VCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildProperties="" description="" id="com.sylixos.realcoder.toolChain.armsylixeabi.441391238" name="Default" parent="org.eclipse.cdt.build.core.emptycfg">
+					<folderInfo id="com.sylixos.realcoder.toolChain.armsylixeabi.441391238.1003963022" name="/" resourcePath="">
+						<toolChain id="com.sylixos.realcoder.toolChain.armsylixeabi.838352838" name="SylixOS Toolchain" superClass="com.sylixos.realcoder.toolChain.armsylixeabi">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.GNU_ELF" id="com.sylixos.realcoder.targetPlatform.armsylixoseabi.557774345" isAbstract="false" name="SylixOS TagetPlagform" osList="win32" superClass="com.sylixos.realcoder.targetPlatform.armsylixoseabi"/>
+							<builder id="com.sylixos.realcoder.builder.armsylixeabi.613838061" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="SylixOS Builder" superClass="com.sylixos.realcoder.builder.armsylixeabi"/>
+							<tool id="com.sylixos.realcoder.tool.armsylixeabi.1331562115" name="arm-sylixos-eabi-gcc" superClass="com.sylixos.realcoder.tool.armsylixeabi">
+								<option id="com.sylixos.realcoder.option.armsylixoseabi.include.1955726209" superClass="com.sylixos.realcoder.option.armsylixoseabi.include" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${SYLIXOS_BASE_PATH}/libsylixos/SylixOS&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SYLIXOS_BASE_PATH}/libsylixos/SylixOS/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SYLIXOS_BASE_PATH}/libsylixos/SylixOS/include/inet&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SYLIXOS_TOOLCHAIN_PATH}/${SYLIXOS_TOOLCHAIN_PREFIX}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${SYLIXOS_TOOLCHAIN_PATH}/lib/gcc/${SYLIXOS_TOOLCHAIN_PREFIX}/${SYLIXOS_TOOLCHAIN_VER}/include&quot;"/>
+								</option>
+								<option id="com.sylixos.realcoder.option.armsylixoseabi.DefinedSymbols.114649914" superClass="com.sylixos.realcoder.option.armsylixoseabi.DefinedSymbols" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="__GNUC__=4"/>
+									<listOptionValue builtIn="false" value="SYLIXOS"/>
+								</option>
+								<inputType id="com.sylixos.realcoder.inputType.armnsylixeabic.2054092648" name="SylixOS Input C" superClass="com.sylixos.realcoder.inputType.armnsylixeabic"/>
+								<inputType id="com.sylixos.realcoder.inputType.armnsylixeabicpp.1538363232" name="SylixOS Input CPP" superClass="com.sylixos.realcoder.inputType.armnsylixeabicpp"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="libreadline.null.1477285754" name="libreadline"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+</cproject>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSSoProject" RealEvoVer="3.3.2 Ultimate"/>
+<BuildSetting CoustomCfgMakefile="false" NotScanSourceFile="false"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<UploadPath>
+<PairItem key="$(WORKSPACE_libsunrpc)\$(Output)\strip\libsunrpc.so" value="/lib/libsunrpc.so"/>
+</UploadPath>
+</SylixOSSetting>

@@ -1,0 +1,53 @@
+0:49 2011-3-14
+
+--SylixOS--
+
+/*  一般情况下: 512 字节扇区 NAND 的坏块标记放在 OOB 区第 6 个字节.
+ *              2K  字节扇区 NAND 的坏块标记放在 OOB 区第 1 个字节.
+ *
+ *  注意, yaffs2 ecc 仅是对 tag 区域的 ecc. yaffs 将对数据区的 ecc 放在了 mtd 完成, 所以, 如果
+ *        不使用 mtd 的话, 必须要手动的在驱动中操作数据区的 ecc , 可参考 mtd 程序中的软件 ecc
+ *        算法, yaffs 的 ecc 校验函数默认与 mtd 的字节序相反, 所以, sylixos 在系统中定义了
+ *        CONFIG_YAFFS_ECC_WRONG_ORDER 宏, 来保证与 mtd 的 ecc 计算结果相同. 
+ *        同时, 如果自己写驱动, 必须先阅读 mtd 对 oob 区的布局表, 尽最大努力与 mtd 兼容.
+ *
+ *
+ *  以下是 yaffs1 (512 byte per chunk), yaffs2(1024, 2048 byte per chunk) 驱动示例
+ *  (512)
+ *  flashDev.param.name                  = "n0";
+ *  flashDev.param.total_bytes_per_chunk = 512;
+ *  flashDev.param.chunks_per_block      = 32;
+ *  flashDev.param.n_reserved_blocks     = 5;
+ *  flashDev.param.start_block           = 128;
+ *  flashDev.param.end_block             = 1023;
+ *  flashDev.param.is_yaffs2             = 0;
+ *  flashDev.param.use_nand_ecc          = 1;           only for yaffs1
+ *  flashDev.param.n_caches              = 10;
+ *  flashDev.driver_context              = (void *)&flashDev;
+ *
+ *  flashDev.param.write_chunk_tags_fn = k??????_write_chunk_tags;
+ *  flashDev.param.read_chunk_tags_fn  = k??????_read_chunk_tags;
+ *  flashDev.param.erase_fn            = k??????_erase;
+ *  flashDev.param.initialise_flash_fn = k??????_initialise_flash;
+ *  flashDev.param.bad_block_fn        = k??????_bad_block;
+ *  flashDev.param.query_block_fn      = k??????_query_block;
+ *
+ *  (1024 or 2048)
+ *  flashDev.param.name                  = "n1";
+ *  flashDev.param.total_bytes_per_chunk = 2048;
+ *  flashDev.param.chunks_per_block      = 64;
+ *  flashDev.param.n_reserved_blocks     = 24;
+ *  flashDev.param.start_block           = 257;
+ *  flashDev.param.end_block             = 2047;
+ *  flashDev.param.is_yaffs2             = 1;
+ *  flashDev.param.no_tags_ecc           = 0;           use tag ecc
+ *  flashDev.param.n_caches              = 10;
+ *  flashDev.driver_context              = (void *)&flashDev;
+ *
+ *  flashDev.param.write_chunk_tags_fn = k9f2g08_write_chunk_tags;
+ *  flashDev.param.read_chunk_tags_fn  = k9f2g08_read_chunk_tags;
+ *  flashDev.param.erase_fn            = k9f2g08_erase;
+ *  flashDev.param.initialise_flash_fn = k9f2g08_initialise_flash;
+ *  flashDev.param.bad_block_fn        = k9f2g08_bad_block;
+ *  flashDev.param.query_block_fn      = k9f2g08_query_block;
+ */

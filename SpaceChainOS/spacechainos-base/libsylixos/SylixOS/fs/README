@@ -1,0 +1,9 @@
+23:26 2009-2-23
+
+--SylixOS--
+
+1: here is SylixOS filesystem & disk partition parse.
+
+   diskCache is generic block device cache. such as HD/CF/SD/MMC/USB_MS...
+ 
+   nandRCache is nand flash read cache for yaffs. it can speed up the nand flash read operation. if you use MTD, please not use this.

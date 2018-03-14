@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSAppProject" RealEvoVer="3.6.4 Ultimate"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<BuildSetting CoustomCfgMakefile="false" NeedReBuild="false" NotScanSourceFile="true"/>
+<UploadPath>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\openssl" value="/usr/bin/openssl"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libssl.so" value="/lib/libssl.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libcrypto.so" value="/lib/libcrypto.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\lib4758cca.so" value="/usr/lib/ssl/lib/engines/lib4758cca.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libaep.so" value="/usr/lib/ssl/lib/engines/libaep.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libatalla.so" value="/usr/lib/ssl/lib/engines/libatalla.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libcapi.so" value="/usr/lib/ssl/lib/engines/libcapi.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libchil.so" value="/usr/lib/ssl/lib/engines/libchil.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libcswift.so" value="/usr/lib/ssl/lib/engines/libcswift.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libgmp.so" value="/usr/lib/ssl/lib/engines/libgmp.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libnuron.so" value="/usr/lib/ssl/lib/engines/libnuron.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libpadlock.so" value="/usr/lib/ssl/lib/engines/libpadlock.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libsureware.so" value="/usr/lib/ssl/lib/engines/libsureware.so"/>
+<PairItem key="$(WORKSPACE_openssl)\$(Output)\strip\libubsec.so" value="/usr/lib/ssl/lib/engines/libubsec.so"/>
+<PairItem key="$(WORKSPACE_openssl)/openssl\apps\openssl.cnf" value="/usr/lib/ssl/openssl.cnf"/>
+</UploadPath>
+<DeviceSetting DevName="192.168.7.34" WorkDir="/apps/openssl"/>
+</SylixOSSetting>

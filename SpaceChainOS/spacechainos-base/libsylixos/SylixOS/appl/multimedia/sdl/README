@@ -1,0 +1,46 @@
+20:40 2011-5-8
+
+--SylixOS--
+
+(please USE libsdl.so, do not add source code here)
+
+port SDL need change some code as following:
+
+1: add sylixos video codes in "sdl/src"
+
+2: add :
+
+   #if SDL_VIDEO_DRIVER_SYLIXOS
+   extern VideoBootStrap SylixOS_bootstrap;
+   #endif
+
+   in SDL_sysvideo.h
+
+3: add :
+
+   #if SDL_VIDEO_DRIVER_SYLIXOS
+   &SylixOS_bootstrap,
+   #endif
+
+   in SDL_video.h
+
+4: add SDL_config_sylixos.h in to "include/sdl"
+
+5: add :
+
+   #elif defined(SYLIXOS)
+   #include "SDL_config_sylixos.h"
+
+   in SDL_config.h
+
+6: change timer/unix/SDL_systimer.c RunTimer()
+
+   SDL_Dela(x)  x ms must bigger than a TICK
+
+7: change audio/dma/SDL_dmaaudio.c SDL_dspaudio.c
+
+   do not use getpid()
+   
+8: pthread support add pthread_attr_setstacksize();
+
+

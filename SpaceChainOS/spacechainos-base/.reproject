@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSBaseProject" RealEvoVer="3.2.2 Ultimate"/>
+<OutputSetting>
+<OutputSetting Name="libsylixos" Path="libsylixos" TreeNode="libsylixos">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libcextern" Path="libcextern" TreeNode="libcextern">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libVxWorks" Path="libVxWorks" TreeNode="libVxWorks">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libreadline" Path="libreadline" TreeNode="libreadline">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="liblua" Path="liblua" TreeNode="liblua">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libsqlite3" Path="libsqlite3" TreeNode="libsqlite3">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="pciutils" Path="pciutils" TreeNode="pciutils">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libzmodem" Path="libzmodem" TreeNode="libzmodem">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libexpat" Path="libexpat" TreeNode="libexpat">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libluaplugin" Path="libluaplugin" TreeNode="libluaplugin">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libsunrpc" Path="libsunrpc" TreeNode="libsunrpc">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="unfsd" Path="unfsd" TreeNode="unfsd">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libsalsa" Path="libsalsa" TreeNode="libsalsa">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="libpcap" Path="libpcap" TreeNode="libpcap">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<OutputSetting Name="openssl" Path="openssl" TreeNode="openssl">
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+</OutputSetting>
+<UploadPath>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsylixos\$(Output)\strip\libvpmpdm.so" value="/lib/libvpmpdm.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsylixos\$(Output)\strip\xinput.ko" value="/lib/modules/xinput.ko"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsylixos\$(Output)\strip\xsiipc.ko" value="/lib/modules/xsiipc.ko"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsylixos\$(Output)\strip\env" value="/usr/bin/env"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libcextern\$(Output)\strip\libcextern.so" value="/lib/libcextern.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libVxWorks\$(Output)\strip\libVxWorks.so" value="/lib/libVxWorks.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libreadline\$(Output)\strip\libreadline.so" value="/lib/libreadline.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\liblua\$(Output)\strip\liblua.so" value="/lib/liblua.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\liblua\$(Output)\strip\luac" value="/bin/luac"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\liblua\$(Output)\strip\lua" value="/bin/lua"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsqlite3\$(Output)\strip\libsqlite3.so" value="/lib/libsqlite3.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsqlite3\$(Output)\strip\sqlite3" value="/bin/sqlite3"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\pciutils\$(Output)\strip\lspci" value="/bin/lspci"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\pciutils\$(Output)\strip\setpci" value="/bin/setpci"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\pciutils\$(Output)\strip\pci.ids" value="/etc/pci/pci.ids"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libexpat\$(Output)\strip\libexpat.so" value="/lib/libexpat.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libluaplugin\$(Output)\strip" value="/lib/lua"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsunrpc\$(Output)\strip\libsunrpc.so" value="/lib/libsunrpc.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsunrpc\$(Output)\strip\portmap" value="/bin/portmap"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\unfsd\$(Output)\strip\unfsd" value="/bin/unfsd"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libsalsa\$(Output)\strip\libsalsa.so" value="/lib/libsalsa.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\libpcap\$(Output)\strip\libpcap.so" value="/lib/libpcap.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\openssl" value="/usr/bin/openssl"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libssl.so" value="/lib/libssl.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libcrypto.so" value="/lib/libcrypto.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\lib4758cca.so" value="/usr/lib/ssl/lib/engines/lib4758cca.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libaep.so" value="/usr/lib/ssl/lib/engines/libaep.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libatalla.so" value="/usr/lib/ssl/lib/engines/libatalla.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libcapi.so" value="/usr/lib/ssl/lib/engines/libcapi.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libchil.so" value="/usr/lib/ssl/lib/engines/libchil.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libcswift.so" value="/usr/lib/ssl/lib/engines/libcswift.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libgmp.so" value="/usr/lib/ssl/lib/engines/libgmp.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libnuron.so" value="/usr/lib/ssl/lib/engines/libnuron.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libpadlock.so" value="/usr/lib/ssl/lib/engines/libpadlock.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libsureware.so" value="/usr/lib/ssl/lib/engines/libsureware.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\$(Output)\strip\libubsec.so" value="/usr/lib/ssl/lib/engines/libubsec.so"/>
+<PairItem key="$(WORKSPACE_sylixos-base)\openssl\openssl\apps\openssl.cnf" value="/usr/lib/ssl/openssl.cnf"/>
+</UploadPath>
+<BuildSetting CoustomCfgMakefile="false" NeedReBuild="false" NotScanSourceFile="false"/>
+<DeviceSetting DevName="10.4.0.59" WorkDir="/lib"/>
+</SylixOSSetting>

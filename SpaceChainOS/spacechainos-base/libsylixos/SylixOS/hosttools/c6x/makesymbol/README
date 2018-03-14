@@ -1,0 +1,1 @@
+运行 makesymbol.bat(windows)或者 makesymbol.sh(linux) 批处理程序, 它会自动在当前目录下分析 libsylixos.a 文件, 即操作系统内核编译产生的静态链接库, 然后, 会将结果自动生成 symbol.c 和 symbol.h 文件, 将这两个文件加入 bsp 工程, 并在操作系统启动过程中初始化即可加入所有操作系统内核符号.

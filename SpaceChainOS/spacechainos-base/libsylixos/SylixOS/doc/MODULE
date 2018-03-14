@@ -1,0 +1,71 @@
+9:49 2010-5-7
+
+--SylixOS--
+
+  SylixOS 支持动态装载/运行应用程序模块(SylixOS 模块支持 C++ 程序). 应用程序模块的装载方式分为三种:
+
+  1: 系统内核模块
+
+  2: 动态链接库
+
+  2: 应用程序
+
+  系统内核模块
+      将整个程序模型装载入内核, 并将通过 LW_SYMBOL_EXPORT 修饰的符号导入内核符号表, 使其成为内核的一部分, 一般用作基础服务组件或者硬件驱动程序.
+      装载模块后系统首先运行模块内的 module_init() 函数, 当需要卸载模块时, 系统将自动运行模块内的 module_exit 函数.
+      此方法十分类似于 linux 装载 .ko 内核模块, 实际 sylixos 装载的内核模块也是 .ko 格式. 相关参数详见 include/module.h 文件. 编写内核模块时, 一定要加入这个文件.
+
+  动态链接库
+      动态链接库可选择将自己的符号表装入 GLOBAL 符号表还是 LOCAL 符号表. 符合 POSIX1003 标准. 注意, 在卸载模块之前, 一定必须确认模块内的任何代码或数据不再被访问!
+      一般动态链接库为 .so 格式
+
+  应用程序
+      应用程序不将自己的符号表导入内核, 而是通过动态链接后运行, 程序的入口一般为 main(). 注意: main() 函数退出时, 一定要回收/销毁自己所有使用过的资源, 例如:自己分配的内存, 创建的子线程, 打开的文件... 由于 SylixOS 没有进程模型, 所以如果没有回收/销毁自己使用的资源, 应用程序退出时, 可能会产生资源泄漏或者崩溃! 例如: main() 函数创建了一个线程, 这个线程的 text 段是应用程序装载器分配的内存. 当 main() 退出时, 用那个用程序装载器会回收此内存, 如果这时这个线程没有被删除, 那么这个线程再次运行时将会崩溃(由于这个时候 text 段已经被回收了)
+      编译应用程序时, 必须连接 vpmpdm.so 补丁库
+  
+  编译选项:(GCC或其他兼容编译器)
+
+  编译 .ko 格式内核模块的命令与选项一般为 gcc -nostartfiles -nodefaultlibs -r -s -o test.ko test.c -lgcc 
+
+  其中 
+
+  -nostartfiles 表明不需要 GCC 加入标准启动代码. 
+
+  -nodefaultlibs 表明不使用 GCC 自带的库(必须使用 SylixOS 的库) 
+
+  (-nostdlib = -nostartfiles & -nodefaultlibs)
+
+  -r 表示目标为可重定向文件
+
+  -lgcc 必须写在最后! 表明需要 GCC 提供基础的内建库, 例如: 在 ARM 硬件中无除法, 这里会加入除法指令...
+
+  编译 .so 格式内核模块的命令与选项一般为 gcc -nostartfiles -nodefaultlibs -fpie -pie -shared -s -o test.so test.c -lgcc 
+
+  其中 
+
+  -fpie -pie 一个作用于编译器, 一个作用于连接器, 他表示生成位置无关可执行程序(也可使用 -fPIC 类型). 相关资料可查阅 GCC 手册.
+
+  -shared 表示生成共享库, 同时将所有的符号导入符号表.
+
+  编译可执行程序命令与选项一般为 
+  
+  gcc -nostartfiles -nodefaultlibs -fpie -pie -s -e main -o test test.c -lgcc 
+  
+  也可以为
+  
+  gcc -nostdlib -fPIC -o test test.c -lgcc 
+
+  没有 -shared 表示不要将符号导入符号表! 
+
+  -e main 表示将入口设置为 main 函数处! (1.0.0版本后的 SylixOS 将使用新的进程入口寻找算法, 不再依据这里的信息, 所以可以没有这个编译选项)
+
+  注意: SylixOS 所有装载的程序必须是可重定位的.
+
+
+  如果想让应用模块内的动态内存分配与回收使用自己独立的堆, 则将当前目录下 vpmpdm.c 与 vpmpdm_cpp.cpp ..., 一起与应用模块编译(或者将补丁编译成动态链接库放入 sbin 目录下). 同时此方法还可以解决部分模块使用时的内存泄露的问题. 详细信息请参考 MEM_MANAGEMENT 说明文件
+
+  如果需要编译 C++ 模块, 链接时推荐依赖于 libstdc++ 与 libustl, 其中 ustl 为一个小型的 STL 库.
+
+  注意, 你需要将编译完成的动态链接库 (例如: libvpmpdm.so libstdc++.so libustl.so libcextern.so ...), 放在运行环境 /lib 目录下, 或者放在环境变量 LD_LIBRARY_PATH 指定的目录中.
+
+  

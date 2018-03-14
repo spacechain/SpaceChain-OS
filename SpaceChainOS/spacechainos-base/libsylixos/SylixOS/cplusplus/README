@@ -1,0 +1,7 @@
+17:19 2009-10-14
+
+--SylixOS--
+
+这里是 C++ run-time 库.
+
+注意, 每一个用户的 CPP 源文件必须包含 SylixOS.h 或者 cplusplus\include\cpp_cpp.h 头文件(第一个包含)!

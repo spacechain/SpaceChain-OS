@@ -1,0 +1,56 @@
+HISTORY
+
+++ Bugfixes:
+
+    2012-06-29 han.hui
+1.  function yaffs_readlink() in direct/yaffsfs.c that 
+    /* memset(buf,0,bufsiz); */
+    /* strncpy(buf,alias,bufsiz - 1); */
+    bufsiz = (bufsiz > YAFFS_MAX_ALIAS_LENGTH) ? YAFFS_MAX_ALIAS_LENGTH : bufsiz;
+    strncpy(buf,alias,bufsiz);
+    
+    2013-01-21 han.hui
+2.  call yaffs_create_file() and yaffs_create_dir() in yaffsfs.c
+    must add getuid() and getgid();
+    
+3.  yaffsfs_DoStat() need add:
+    buf->st_uid = obj->yst_uid;
+    buf->st_gid = obj->yst_gid;
+    
+4.  yaffs_chmod() and yaffs_fchmod()
+    change if(mode & ~(0777)){ to if(mode & S_IFMT){
+    
+5:  yaffs_tagsmarshall.c <line 121> -YAFFS_ECC_RESULT_FIXED should be YAFFS_ECC_RESULT_FIXED
+
+    2013-07-16 han.hui
+6:  yaffs_open_sharing() after dsc = yaffsfs_opendir_no_lock(path); must add 
+    fd->isDir = is_dir; 
+    fd->v.dir = dsc; 
+    so if openDenied is true, yaffsfs_PutHandle() must call yaffsfs_closedir_no_lock();
+    
+7:  yaffs_symlink() mode must 0755
+
+    2014-07-15 han.hui
+8:  yaffsfs_readdir_no_lock() add :
+    dsc->de.d_type = yaffs_get_obj_type(dsc->nextReturn);
+
+    2015-09-23 han.hui
+9:  yaffsfs_DoStat() add :
+    else if (obj->variant_type == YAFFS_OBJECT_TYPE_FILE) {
+        switch (obj->yst_mode & S_IFMT) {
+        
+        case S_IFSOCK:
+            buf->st_mode |= S_IFSOCK;
+            break;
+            
+        default:
+            buf->st_mode |= S_IFREG;
+            break;
+        }
+    }
+    
+10: yaffsfs_DoChMod() change:
+    obj->yst_mode = mode; to:
+    mode &= ~S_IFMT;
+    obj->yst_mode &= S_IFMT;
+    obj->yst_mode |= mode;

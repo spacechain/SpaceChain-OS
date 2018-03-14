@@ -1,0 +1,25 @@
+23:26 2009-2-23
+
+--SylixOS--
+
+1: here is SylixOS header file
+
+   NOTIC! the following header files are in GCC build-in path. eg: ../lib/gcc/arm-elf/4.1.1/include/
+
+   float.h
+   iso646.h
+   mmintrin.h
+   stdarg.h*
+   stdbool.h
+   stddef.h
+   syslimits.h
+   unwind.h
+   varargs.h
+
+   if some standar header which you use is not in this directory. please use a external C library.
+
+   eg: newlib 
+
+2: "inet" is Lwip header file directory
+
+   "netinet" is UNIX compatible internet header files directory

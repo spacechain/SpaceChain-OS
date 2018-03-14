@@ -1,0 +1,9 @@
+11:46 2010-2-1
+
+--SylixOS--
+
+1: here is SylixOS USB Host stack.
+   SylixOS USB Host stack not open source.
+   SylixOS Host stack support USB1.1 USB2.0 USB3.0 Host (UHCI, OHCI, EHCI, MHCI, XHCI)
+   Support Mass-storage, Keyborad, Mouse, Touch, Ethernet, Serial port(2G/3G/4G Mobile network), Printer ...
+   

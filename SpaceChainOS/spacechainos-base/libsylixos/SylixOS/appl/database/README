@@ -1,0 +1,5 @@
+18:24 2013-1-8
+
+--SylixOS--
+
+after 1.0.0-rc36 version, sqlite3 removed from kernel, because SylixOS support file lock. so sqlite3 can be in a process.

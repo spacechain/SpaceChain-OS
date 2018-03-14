@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<BaseSetting BeLite="false" ProjectType="SylixOSSoProject" RealEvoVer="3.2.5 Ultimate"/>
+<BuildSetting CoustomCfgMakefile="true" NeedReBuild="false" NotScanSourceFile="false"/>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+<UploadPath>
+<PairItem key="$(WORKSPACE_libpcap)\$(Output)\strip\libpcap.so" value="/lib/libpcap.so"/>
+</UploadPath>
+<DeviceSetting DevName="10.4.0.59" WorkDir="/lib"/>
+<FileFilter>
+
+</FileFilter>
+</SylixOSSetting>

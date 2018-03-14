@@ -1,0 +1,53 @@
+11:30 2012-12-18
+
+1: use lwip's socket, and use sylixos fd encapsulation a lwip private fd.
+   do not need change sockets.c to link sylixos io system, thanks jiaojinxing.
+   
+2: only change sockets.c a little code eg: #define ERRNO, not include lwip_select() and add sylixso select code.
+
+14:09 2009-8-19
+
+1: change system include file from (<...h>) to ("...h").
+   excpet <stddef.h>
+
+2: change sockets.h do not extern select() (use sylixos select function)
+
+3: add netifadd_hook(), netifremove_hook(), netifup_hook(), netifdown_hook() (netif.c)
+
+4: add ip_input_hook() (ip.c)
+
+5: add etharp_traversal() (etharp.c)
+
+6: change sockets.c to link to sylixos io system.
+
+7: change sockets.h ...
+
+8: change netdb.h add libc_netdb.h
+
+9: change ppp/utils.c disable strlcpy() and strlcat()
+
+10: netif_init() loop_netif set ipv6 address. (for future)
+
+11: ip6_addr.h add ip6_addr_isloopback()
+
+12: netif_set_link_up() and netif_set_link_down() add hook.
+
+13: netif add ioctl();
+
+14: netconn_getaddr() do NOT update last_err.
+
+15: ip_route() and ip6_route() must detect netif linkup status.
+
+16: etharp.c add addr conflict check.
+
+17: etharp_update_arp_entry() export.
+
+18: netif_set_ipaddr() netif_set_up() netif_set_down() netif_ip6_addr_set_parts() hook.
+
+19: pppcrypt.h add mbedtls include files.
+
+20: ip4_frag() support ip with MF flag fragment.
+
+21: include/network/lwip add ip4_mroute.h, ip4_mrt.h
+
+22: socket.c setsockopt() getsockopt() add ip4_mrt_setsockopt() ip4_mrt_getsockopt().

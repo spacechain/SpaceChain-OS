@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="GB2312" standalone="no"?>
+<SylixOSSetting>
+<UploadSetting HostName="" Password="root" UserName="root"/>
+<BaseSetting ProjectType="StaticLibProject"/>
+<BuildConfigration>
+<BuildCfgPair Macro="SylixOS_Debug_Level" Value="debug"/>
+<BuildCfgPair Macro="SylixOS_Create_Date" Value="2016-05-27"/>
+<BuildCfgPair Macro="SylixOS_Base_Path" Value="E:/SylixOS/gcc/v2.1/cortex-a9"/>
+<BuildCfgPair Macro="SylixOS_Fpu_Type" Value=""/>
+<BuildCfgPair Macro="SylixOS_Toolchain_Ver" Value="4.9.3"/>
+<BuildCfgPair Macro="SylixOS_Toolchain" Value="arm-sylixos-eabi"/>
+<BuildCfgPair Macro="projectType" Value="org.eclipse.cdt.build.makefile.projectType.SylixOS"/>
+<BuildCfgPair Macro="SylixOS_Target_Name" Value="libzmodem"/>
+<BuildCfgPair Macro="SylixOS_Arch" Value="arm"/>
+<BuildCfgPair Macro="SylixOS_Src_Path" Value="F:/ACOINFO/RealEvo-IDE/SylixOS"/>
+<BuildCfgPair Macro="SylixOS_Toolchain_Path" Value="F:\ACOINFO\arm-sylixos-toolchain"/>
+<BuildCfgPair Macro="baseNameLower" Value="libzmodem"/>
+<BuildCfgPair Macro="SylixOS_Cpu_Type" Value="-mcpu=arm920t"/>
+<BuildCfgPair Macro="location" Value="E:\SylixOS\gcc\v2.1"/>
+<BuildCfgPair Macro="SylixOS_Create_User" Value="Administrator"/>
+<BuildCfgPair Macro="baseNameUpper" Value="LIBZMODEM"/>
+<BuildCfgPair Macro="projectName" Value="libzmodem"/>
+<BuildCfgPair Macro="baseName" Value="libzmodem"/>
+<BuildCfgPair Macro="Create_Date" Value="2016 年05 月27 日"/>
+</BuildConfigration>
+<OutputSetting>
+<OutputPath Name="Output" Path="Release:Debug" TreeNode="Output"/>
+<OutputPath Name="Debug" Path="Debug" TreeNode="Debug"/>
+<OutputPath Name="Release" Path="Release" TreeNode="Release"/>
+</OutputSetting>
+</SylixOSSetting>

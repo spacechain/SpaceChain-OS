@@ -1,0 +1,1556 @@
+HISTORY
+
+(GIT HEAD)
+
+++ New features:
+
+    2018-02-25: han.hui
+    加入 DHCPv6 支持.
+
+    2018-02-01: han.hui
+    加入对 TCP MSS 在不同 MTU 网口间转发的 MSS 调整功能.
+
+    2018-01-26: han.hui
+    netdev 模型支持轮询模式, 支持高速实时网络应用.
+
+    2018-01-23: han.hui
+    网络设备加入 Linux 兼容的组播滤波器.
+
+    2018-01-20: han.hui
+    加入 IGMPv3 支持 (支持 PIM-SSM 组播路由).
+
+    2018-01-18: han.hui
+    协议栈加入完整的组播滤波器.
+
+    2018-01-16: han.hui
+    NAT 支持多 WAN 口, 多 LAN 口.
+
+    2018-01-11: han.hui
+    加入 IP_MINTTL, IPV6_MINHOPCNT 支持提高 BGP 网关安全性 (RFC5082).
+
+    2018-01-09: han.hui
+    支持 Quagga 核心网路由系统框架 
+    包括: RIP, RIPv2, RIPng(IPv6), OSPFv2, OSPFv3, IS-IS, BGP, PIM-SM, PIM-DM 等.
+
+    2018-01-07: han.hui
+    升级 lwip 支持新的诸多特性.
+
+    2018-01-04: han.hui
+    升级 tcpip 支持新的组播诸多特性.
+
+    2017-12-27: han.hui
+    支持路由 IP 再分片.
+
+    2017-12-26: han.hui
+    系统最多可支持 256 个网络接口.
+
+    2017-12-24: han.hui
+    使用 mbedTLS 替换古老的 polarSSL.
+
+    2017-12-21: han.hui
+    加入 KidVPN 支持.
+
+    2017-12-18: han.hui
+    加入源地址负载均衡路由支持.
+    NAT 加入负载均衡支持.
+
+    2017-12-17: han.hui
+    加入网络流量控制支持.
+
+    2017-12-13: han.hui
+    加入 IPv6 路由支持.
+    支持标准 BSD 路由 ioctl() 命令: SIOCADDRT & SIOCDELRT (支持 IPv6 路由表)
+    增加 SIOCCHGRT, SIOCGETRT, SIOCLSTRT (改, 查, 列) 路由命令.
+    增加 BSD 兼容 AF_ROUTE 路由协议域.
+
+    2017-12-10: han.hui
+    重构 IPv4 路由系统.
+
+    2017-12-06: han.hui
+    网络系统使用更加高效的内存管理技术.
+
+    2017-12-04: han.hui
+    增加"网桥"功能支持.
+
+    2017-12-01: han.hui
+    增加 cdump 错误信息回收功能, 可回收最后一次崩溃信息.
+
+    2017-11-08: han.hui
+    增加 ARM MPU 管理支持.
+    增加 ARM Cortex-M Cache, VFP 管理支持.
+
+    2017-10-17: han.hui
+    增加 SPARC 体系结构支持.
+
+++ Bugfixes:
+
+    2017-12-28: han.hui
+    修正 gpio 复用中断向量时的中断风险.
+
+    2017-12-27: han.hui
+    修正网络黑名单策略可能遭受到拒绝服务攻击.
+
+    2017-12-27: han.hui
+    修正 rename() 使之完全符合 POSIX 标准.
+
+    2017-12-26: han.hui
+    修正 ATA(IDE) 对大容量磁盘的支持.
+
+    2017-12-14: han.hui
+    修正 tpsFs 事务回滚错误.
+
+    2017-10-31: han.hui
+    修正多核亲和度调度可能产生的优先级反转错误.
+
+(STABLE-1.5.3)
+
+++ New features:
+
+    2017-08-31: han.hui
+    增加对 PCI MSI-X 类型中断支持.
+    增加对 NVMe 高速 SSD 支持.
+
+    2017-08-18: han.hui
+    增加对 TI C6000 系列 DSP 支持.
+
+    2017-08-11: han.hui
+    增加对应用程序栈区越界判断保护.
+
+    2017-07-30: han.hui
+    netdev 提供网卡零拷贝缓存管理, 提高网卡数据吞吐率.
+
+    2017-07-28: han.hui
+    使用新的连续时间离散化机制, 确保时间相互转换精确度.
+
+    2017-07-27: han.hui
+    管道与 POSIX 消息队列使用 test-pend 机制, 提高效率.
+
+    2017-07-24: han.hui
+    增加共享内存虚拟网卡.
+
+    2017-07-11: han.hui
+    增加对 Intel/AMD x64 64 位体系结构支持.
+
+    2017-07-10: han.hui
+    增加 SIGSTKSHOW 内部信号, 可观察任务调用栈与上下文.
+
+    2017-06-23: han.hui
+    内存泄漏跟踪工具增加对 tlsf, dlmalloc 内存管理算法的跟踪.
+
+    2017-06-09: han.hui
+    加入对 ARM Cortex M 系列处理器支持.
+
+    2017-06-08: han.hui
+    加入对 4 级页表 64 位 MMU 支持.
+
+++ Bugfixes:
+
+    2017-09-27: han.hui
+    修正 Cortex-M 处理器中断屏蔽错误.
+
+    2017-09-22: han.hui
+    修正分区工具的分区大小计算错误.
+
+    2017-08-31: han.hui
+    修正 PowerPC E500 MMU 地址长度错误.
+
+    2017-08-18: han.hui
+    修正信号返回时, 调度器返回值可能发生错误的情况.
+
+    2017-08-17: han.hui
+    修正信号上下文, 异常上下文堆栈对齐错误.
+
+    2017-08-12: han.hui
+    修正 netdev 接收零拷贝初始化错误.
+
+    2017-08-11: han.hui
+    修正 AIO errno 错误.
+
+    2017-07-25: han.hui
+    修正 sem_unlink(), mq_unlink() 与 POSIX 标准些许不符合行为.
+
+    2017-07-18: han.hui
+    修正 64 位模式下一些类型判断错误.
+
+    2017-06-08: han.hui
+    修正 AF_PACKET mmap() 错误.
+
+    2017-06-01: han.hui
+    修正一些驱动针对于 select() 异常判断的错误.
+
+(STABLE-1.4.3)
+
+++ New features:
+
+    2017-05-12: han.hui
+    加入 5 个 IP 数据包关键 HOOK.
+
+    2017-04-28: han.hui
+    TPS FS 升级到 2.0.
+
+    2017-04-15: han.hui
+    加入针对同步多线程 SMT (例如 Intel(R) HT 超线程技术) 处理器, 调度器优化均衡调度功能.
+
+    2017-04-10: han.hui
+    加入网络白名单功能.
+
+    2017-03-13: han.hui
+    加入对 CAN FD 总线标准支持.
+
+    2017-03-07: han.hui
+    加入对大端 ARM 支持.
+
+    2017-02-26: han.hui
+    加入可信计算支持接口.
+
+    2017-02-23: han.hui
+    加入 lite-bsp 与 extension 类型工程模板.
+
+    2017-01-09: han.hui
+    加入网络登录黑名单管理.
+
+    2016-12-13: han.hui
+    支持任务非继承亲和度调度.
+
+    2016-11-04: han.hui
+    支持多并行网络任务队列.
+
+    2016-10-28: han.hui
+    升级新的网络系统.
+    加入新的网络驱动模型.
+
+++ Bugfixes:
+
+    2017-04-28: han.hui
+    修正超线程模式任务切换时栈区使用错误.
+
+    2017-04-18: han.hui
+    修正 telnet 窗口大小变化信号发送错误.
+
+    2017-03-31: han.hui
+    编译内核, 内核库, BSP 加入 -fno-strict-aliasing 编译选项.
+
+    2017-03-07: han.hui
+    修正 x86 平台 FPU XSAVE 上下文过小问题.
+
+    2017-02-23: han.hui
+    修正 MIPS 非对齐访问仿真错误.
+
+    2017-02-21: han.hui
+    修正 x86 高精度时间获取错误.
+
+    2017-02-13: han.hui
+    修正针对 Lite 模式网络裁剪问题.
+
+    2017-01-18: han.hui
+    优化浮点操作, 提高任务切换速度.
+
+    2016-12-27: han.hui
+    修正协程调度错误.
+
+    2016-12-20: han.hui
+    修正 heap 删除时分段判断错误.
+
+    2016-12-13: han.hui
+    将无线网络扩展放入 netdev.
+
+    2016-12-13: han.hui
+    修正对 VxWorks RTP 兼容库支持问题.
+
+    2016-11-28: han.hui
+    修正 MIPS 硬浮点错误.
+    修正 PowerPC 装载错误.
+    优化 SATA 写并行管线操作.
+
+(STABLE-1.3.5)
+
+++ New features:
+
+    2016-10-07: Jiao.JinXing
+    加入 Makefile 模板.
+
+    2016-09-18: han.hui
+    加入 exFAT 文件系统支持.
+
+    2016-08-19: han.hui
+    加入 x86 体系结构支持.
+
+    2016-07-28: han.hui
+    加入系统性能分析器.
+
+    2016-07-25: han.hui
+    加入 diskCache 并行处理缓冲区管理. (oem mount 第二代接口与之前不再兼容)
+
+    2016-07-23: han.hui
+    加入 buzzer 设备类型.
+
+    2016-07-21: han.hui
+    内核消息队列支持读写双向阻塞.
+
+    2016-07-20: han.hui
+    加入内核读写信号量支持.
+
+    2016-07-18: Gong.YuJian
+    加入 AHCI 总线驱动.
+
+    2016-07-16: han.hui
+    路由表可以设置到任意目标指定的网关. (route 系列 API 与之前不再兼容)
+
+    2016-07-12: han.hui
+    加入磁盘 CACHE 与文件系统安全性相关接口.
+
+++ Bugfixes:
+
+    2016-10-20: han.hui
+    将浮点相关函数移动到 vpmpdm 里面, 这样 libsylixos 可适应任何 hard-fp ABI.
+
+    2016-09-14: han.hui
+    修正 sigwait 系列函数超时判断错误.
+    修正 shell 连续背景执行错误.
+
+    2016-07-21: han.hui
+    修正事件超时与信号之间的耦合错误.
+
+(STABLE-1.3.3)
+
+++ New features:
+
+    2016-06-15: han.hui
+    加入 JTAG 调试应用程序与内核模块的支持.
+
+    2016-06-12: han.hui
+    加入 NETMOS, EXAR PCI 串口板卡驱动.
+
+    2016-05-25: han.hui
+    VMM 使用新型内存区描述表的方式进行初始化, 不再兼容旧式内存布局初始化.
+
+    2016-05-11: han.hui
+    加入 PowerPC E500 支持.
+
+    2016-05-10: han.hui
+    加入中断延迟队列处理能力, 类似 Linux 底半部中断处理.
+
+    2016-04-14: han.hui
+    加入 GJB7714-2012 军用嵌入式操作系统接口规范支持.
+
+    2016-04-11: han.hui
+    加入 /proc/hook 信息.
+
+    2016-04-08: han.hui
+    加入 net_perf_cfg.h 网络性能参数配置.
+
+    2016-04-07: han.hui
+    加入 /proc/cmdline 与 /proc/dma 信息.
+
+    2016-04-06: han.hui
+    加入 yaffs 对 nor flash 支持.
+    
+    2016-03-31: han.hui
+    加入 PowerPC 体系结构支持.
+
+    2016-02-28: han.hui
+    加入 TPSFS 文件系统.
+
+++ Bugfixes:
+
+    2016-05-24: han.hui
+    CPU 利用率接口改为千分率精度.
+
+    2016-05-01: han.hui
+    TLB 管理更加精细化.
+    简化多核核间中断类型与设计实现.
+    修正多核 MMU 异常判断错误.
+    修正 ARMv8 CACHE 操作错误.
+    加入地址空间初始化检查功能, 防止全局地址空间设置错误.
+
+    2016-04-18: han.hui
+    为性能考虑 FAT 不在需要 trim 命令支持.
+
+    2016-04-05: han.hui
+    修正 O_APPEND 每一次写都是追加操作的问题.
+    修正信号上下文中对浮点寄存器的保护.
+
+    2016-03-25: han.hui
+    修正 cfsetispeed, cfsetospeed 问题.
+    修正 system 参数过多问题.
+
+    2016-03-09: han.hui
+    修正 sync() 对未打开文件的磁盘 cache 操作的问题.
+
+(STABLE-1.2.1)
+
+++ New features:
+
+    2015-12-16: han.hui
+    加入 VLAN 支持.
+    加入 NAT 内外网映射功能, 支持 NAT 别名设置.
+    
+    2015-11-20: han.hui
+    加入对 MIPS 体系结构的支持.
+
+    2015-11-19: han.hui
+    加入 OpenOCD 硬件调试器接口代码.
+
+    2015-10-28: han.hui
+    加入 Intel 8259A 与 8254 标准驱动.
+    
+    2015-09-25: han.hui
+    加入 fdisk 与 blk I/O 功能.
+
+    2015-09-20: han.hui
+    加入标准网卡配置文件识别器, /etc/ifparam.ini.
+
+    2015-09-19: han.hui
+    加入内核对象共享注册与查询接口, 方便内核程序与应用程序通信.
+    
+    2015-09-18: han.hui
+    加入用户与组增加、更改、删除、查询接口.
+
+    2015-09-08: han.hui
+    加入内核工作队列接口.
+
+    2015-09-01: han.hui
+    加入 video 摄像头驱动程序接口.
+
+    2015-08-27: han.hui
+    加入标准设备驱动程序.
+
+    2015-08-27: han.hui
+    加入 BLOCK RAW I/O 功能, 此类设备支持直接操作硬盘扇区.
+
+    2015-08-26: han.hui
+    支持自定义模式 PCI 控制器驱动接口.
+
+    2015-08-20: Jiao.Jinxing
+    加入 ARMv8 体系结构支持, 测试处理器为 FT1500A 16 Core SMP ARMv8 Processor.
+    
+    2015-07-12: han.hui
+    可以通过 LW_CFG_VP_HEAP_ALGORITHM 宏选择 vpmpdm 进程补丁内存管理算法.
+    支持首次适应立即聚合、TLSF 时间复杂度为 O(1) 内存管理算法、DLmalloc 内存管理算法.
+    
+    2015-06-23: han.hui
+    加入 SYLIXOS LITE 裁剪支持, 主要面向 ARM Cortex-M 系列微控制器.
+    
+++ Bugfixes:
+
+    2016-01-12: han.hui
+    修正 blockIo 支持所有文件系统操作.
+    oemDiskMount 彻底脱离具体的文件系统实现.
+
+    2015-11-20: han.hui
+    修正 xinput & xsiipc 内核模块初始化函数返回值.
+
+    2015-11-13: han.hui
+    加入专用的内核锁操作方法, 修正 SMP debug 错误, 提高 SMP 实时性.
+
+    2015-11-12: han.hui
+    修正内核对象 SMP 并发操作错误.
+    
+    2015-08-26: han.hui
+    修正 bspIntVecter* 拼写错误.
+
+    2015-08-21: han.hui
+    修正 cache 无效操作结束地址判断错误.
+
+    2015-08-17: han.hui
+    修正 deamon 需要通知父进程.
+    
+    2015-07-24: han.hui
+    修正 mq_send 优先级为 0 的错误.
+    修正 fcntl F_DUPFD 的错误.
+
+    2015-06-26: han.hui
+    修正 HOOK 调用顺序.
+    
+    2015-07-24: han.hui
+    修正 fcntl F_DUPFD 的错误.
+    
+(STABLE-1.1.1)
+
+++ New features:
+    
+    2015-05-25: han.hui
+    加入 _SC_PHYS_PAGES 与 _SC_AVPHYS_PAGES 支持.
+
+    2015-04-18: han.hui
+    系统 tick 频率等其他时间参数不再通过宏配置, 而是通过 bsp 传入的内核参数确定.
+    
+    2015-04-17: han.hui
+    加入 sched_rms 高精度单调周期接口, 可支持纳秒级精度周期控制.
+
+    2015-04-05: han.hui
+    加入高分辨率时钟获取接口.
+    
+++ Bugfixes:
+
+    2015-05-25: han.hui
+    修正 AF_PACKET 接口接收超时错误.
+
+    2015-05-16: han.hui
+    重新设计回调系统.
+    
+    2015-05-15: han.hui
+    posix spin lock 不在使用内核 spin lock 实现.
+    
+    2015-05-14: han.hui
+    修正多核初始化死锁问题.
+    
+    2015-04-24: han.hui
+    修正多核调度就绪表问题.
+    
+    2015-04-17: han.hui
+    修正重定向文件描述符回收错误.
+    
+    2015-04-07: han.hui
+    修正 ARM 中断嵌套接口, 提高中断响应速度.
+    
+    2015-04-05: han.hui
+    修正 SIGEV_THREAD_ID 错误.
+    
+    2015-04-05: han.hui
+    修正 SD 中断处理错误.
+    
+(STABLE-1.0.0)
+
+++ New features:
+
+    2014-12-31: han.hui
+    升级 FatFs 支持 SSD 磁盘访问优化, 支持获取文件创建时间.
+
+    2014-12-02: han.hui
+    内核初始化时, 支持系统堆配置为 0 大小, 系统仅使用内核堆.
+    
+    2014-11-11: han.hui
+    加入了调度亲和度模型, 当前支持将指定的线程或进程锁定到指定的 CPU.
+
+    2014-11-05: han.hui
+    加入了一些 POSIX 接口函数.
+    
+    2014-10-15: han.hui
+    telnet 支持动态同步窗口大小.
+
+    2014-10-15: han.hui
+    加入 stpcpy stpncpy strsignal 函数.
+
+    2014-09-29: han.hui
+    加入 __locale_mb_cur_max 函数声明, 实现在 libcextern 库中.
+
+    2014-09-20: han.hui
+    加入 ARM PL330 DMA 驱动程序.
+
+    2014-09-18: han.hui
+    加入 vmmIoRemapEx 驱动程序可指定内存属性.
+
+    2014-09-02: han.hui
+    加入新的 license 文件.
+    
+    2014-08-29: han.hui
+    升级 mtd, GDB.
+
+    2014-08-27: han.hui
+    shell 收到 control+C 时, 以非安全的方式杀死等待执行完成的任务.
+
+    2014-08-11: han.hui
+    系统支持堆栈溢出与致命错误安装钩子函数.
+    
+    2014-07-23: han.hui
+    xinput 支持 proc 文件显示当前物理设备信息.
+
+    2014-07-21: han.hui
+    多核系统支持 CPU 动态启停功能.
+    
+    2014-07-19: han.hui
+    淘汰老的电源管理模块, 加入新电源管理模型.
+
+    2014-07-16: han.hui
+    ARM 平台移植中加入对 DMA 标准控制器的驱动.
+
+    2014-07-10: han.hui
+    shell 使用新型颜色系统, 增加对 LS_COLORS 环境变量的支持.
+
+    2014-07-03: han.hui
+    heap 内存管理加入内存添加功能.
+    增加一些 posix 定义的一些函数, 其中包括支持 adjtime 微调系统时钟.
+    
+    2014-07-01: han.hui
+    加入 ppp 管理工具.
+
+    2014-06-25: han.hui
+    加入网络接口电源管理与 wireless 802.11 支持.
+
+    2014-06-24: han.hui
+    加入软件磁盘阵列管理.
+
+    2014-06-04: han.hui
+    加入内存设备.
+    扩着 get last error 接口.
+
+    2014-05-30: han.hui
+    shell 加入 dsize 命令查看文件夹大小.
+    GDB 支持 Non-Stop 多线程调试模式.
+    
+    2014-05-24: han.hui
+    SylixOS 加入 ramfs 支持.
+
+    2014-05-22: han.hui
+    SylixOS 加入 GDB 支持, 可以远程调试应用程序.
+
+    2014-05-09: han.hui
+    shell 加入用户管理.
+    
+    2014-05-08: han.hui
+    ints 加入中断计数器显示.
+
+    2014-05-07: han.hui
+    netif 加入 ioctl 接口.
+
+    2014-05-05: han.hui
+    netstat 打印 tcp listen 时, 加入对 IPv6-ONLY 字段的打印.
+    加入 getpass 与 getpass_r 函数.
+    
+    2014-05-04: han.hui
+    加入 tp 内建命令查看线程阻塞情况.
+
+    2014-05-04: han.hui
+    netinet 下加入一些标准头文件.
+    加入 daemon() 可以使进程变为守护进程.
+
+    2014-05-03: han.hui
+    加入获取网络类型功能.
+
+    2014-05-02: han.hui
+    monitor 加入网络操作跟踪功能.
+    
+    2014-04-30: han.hui
+    加入对虚拟空间的扩展和拆分操作.
+
+    2014-03-22: han.hui
+    加入 AF_PACKET 支持, 可以直接操作网卡收发链路层数据包.
+
+    2014-02-24: han.hui
+    shell readline 工具 tab 键支持最大限度的自动输入最优匹配的字符.
+    
+    2014-01-17: han.hui
+    添加 k_priority.h 文件, 定义 SylixOS 建议的优先级划分方法.
+
+    2014-01-14: han.hui
+    为 pthread 库加入一些常用的扩展功能.
+
+    2014-01-02: han.hui
+    热插拔事件中, 加入网络连接变化与电源连接变化事件类型.
+
+    2013-12-13: han.hui
+    /etc/login.defs 文件加入可识别的参数 PASS_DELAY, 可以延迟识别登陆密码, 防止恶意破解 SylixOS 登陆密码.
+
+    2013-12-12: han.hui
+    将 dsohandle 和 vpmpdm 库直接放在源码树中, 通过 Makefile 选项可以直接选择是否编译这两个库.
+
+    2013-12-10: han.hui
+    重新设计 SylixOS 系统移植层, 将通用系统移植封装在 arch 内, 简化 bsp 设计.
+    SylixOS 从 1.0.0-rc42 开始使用新的移植层规范, 不再兼容以前的 BSP 包(新的 BSP 包代码量减少 80%, 层次清晰, 方便移植). 
+
+    2013-12-03: han.hui
+    加入高速定时器设备组件, 可以为应用提供超高频率 (高于 tick 频率) 定时服务.
+
+    2013-12-01: han.hui
+    内核中加入工作队列模型, 统一所有的工作队列操作.
+
+    2013-11-29: han.hui
+    支持 GPIO (通用输入/输出) 模型.
+    为驱动程序提供 GPIO 统一的操作接口, 方便使用 GPIO 的设备驱动程序移植.
+    为应用程序提供 gpiofd(sys/gpiofd.h) 类型文件, 可以直接以文件的形式操作 GPIO 与对应的外部中断.
+
+    2013-11-20: han.hui
+    支持 linux2.6 加入的 eventfd, timerfd, signalfd 功能.
+
+    2013-11-18: han.hui
+    fcntl() 支持 F_DUPFD_CLOEXEC 与 F_DUP2FD_CLOEXEC.
+    支持部分 epoll 子系统.
+
+    2013-11-17: han.hui
+    AF_UNIX 支持 SOCK_SEQPACKET 类型 socket.
+    AF_UNIX recvmsg() 支持 MSG_CMSG_CLOEXEC.
+    socket 支持 SOCK_CLOEXEC 与 SOCK_NONBLOCK 选项.
+    socket 支持 accept4 调用.
+
+    2013-11-14: han.hui
+    加入 /proc/kernel/objects 文件, 可获取内核对象的使用情况.
+
+    2013-10-08: han.hui
+    加入 ualarm, setitimer, getitimer 函数.
+
+    2013-10-02: han.hui
+    SylixOS 加入新的热插拔机制, 同时删除老的热插拔通知应用的机制.
+    新的热插拔机制, 应用只需读取 /dev/hotplug 文件就可以获得热插拔信息.
+
+    2013-09-28: han.hui
+    加入 PCI 总线模型, 不再需要外挂 PCI 总线驱动模块.
+
+    2013-09-24: han.hui
+    /proc/net/ 目录下加入 if_inet6 文件.
+    网络系统 ioctl 支持部分 IPv6 地址操作.
+
+    2013-09-23: han.hui
+    升级 SylixOS 自带的 PolarSSL 与 zlib 库.
+
+    2013-09-17: han.hui
+    设置所有 POSIX 规定的线程取消点位置.
+    加入线程堆栈警戒功能.
+
+    2013-09-13: han.hui
+    mmap() 支持 MAP_SHARED, 不再需要特殊驱动的支持.
+    monitor 增加对进程的过滤选项和对缓冲消息的控制 API.
+
+    2013-09-12: han.hui
+    stdio 在内核中加入 bnprintf/vbnprintf 专用的缓冲区打印函数, 用于 procfs 文件节点向 proc 文件系统缓冲区打印.
+
+    2013-09-11: han.hui
+    /proc/net/ 目录下加入 dev 文件, netstat -i 直接打印此文件内容.
+    /proc/net/ 目录下加入 netfilter 文件.
+    /proc/net/ 目录下加入 arp 文件.
+
+    2013-09-03: han.hui
+    线程延迟, 定时器, 看门狗等均开始采用差分时间链表方式进行管理.
+    进程 proc 文件系统信息加入 ioenv 文件, 用来查看进程 IO 环境信息.
+
+    2013-08-23: han.hui
+    在 /proc/net 目录下加入较为完整的网络信息文件.
+    加入基本与 unix 系统兼容的 netstat 命令.
+
+    2013-08-17: han.hui
+    SylixOS 开始加入 monitor 监控器功能, 用于监控内核的所有事件. 并通过可选的通道上传至宿主机进行分析.
+    需要注意的是打开 monitor 监控器会造成 SylixOS 中断延迟增大, 此功能属于调试开发工具范畴, 正常工作时需要关闭此功能.
+
+    2013-08-13: han.hui
+    根文件系统与 proc 文件系统加入对文件数量的统计.
+    proc 文件系统加入 fs 目录.
+
+    2013-07-19: han.hui
+    加入新的 SMP 核间中断通信机制.
+
+    2013-07-17: han.hui
+    增加系统启动函数, 多核系统初始化过程中, 默认初始化核为主核, 其他核为从核, SylixOS 提供两组入口函数, 
+    多任务环境启动后, 所有的核均为对等多处理器系统.
+
+    2013-07-10: han.hui
+    升级 mtd 与 yaffs, 使 SylixOS 支持 512, 2K, 4K, 8K nand onenand 存储器.
+
+    2013-07-04: han.hui
+    SylixOS 加入较为完整的无线通信管理框架, 包括 lowpan, 无线 mac 适配层, rdc 射频工作周期管理, 和射频驱动模型 radio_driver
+    此无线通信框架, 适用于 IEEE802.15.4 网络, 可以使用 SylixOS 自带的 MAODV 实现无线自组网, 
+    本无线框架已经支持 6lowpan 标准, 符合美国国家电网无线通信标准.
+    
+    2013-06-24: han.hui
+    更新 fat 文件系统, 加入对卷标的支持.
+
+    2013-06-18: han.hui
+    加入对 IEEE802.15.4 无线网络接口的支持, 此网络接口可以使用 SylixOS 提供带有组播功能的 AODV 实现无线自组网功能.
+    proc 文件系统中加入网络参数相关文件.
+
+    2013-06-12: han.hui
+    新版的 SylixOS 加入 makefile 不再依赖 eclipse 插件进行编译.
+    实现 POSIX 标准的 setpriority, getpriority 与 nice 函数.
+    shell 创建出的进程, 默认优先级为 LW_CFG_PTHREAD_DEFAULT_PRIO.
+
+    2013-06-07: han.hui
+    posix_spawn 加入可以设置子进程工作目录的扩展接口.
+    sys/wait.h 中加入 detach 函数, 用以解除进程父子关系.
+    添加在 linux 下的 makesymbol 与 makedeb 工具, 方便在 linux 下开发 SylixOS.
+    
+    2013-05-24: han.hui
+    加入虚拟空间对齐的内存开辟算法.
+    动态链接库支持进程间共享代码段.
+
+    2013-05-14: han.hui
+    ifconfig 打印 ipv6 地址时, 需要追加打印地址状态.
+
+    2013-05-08: han.hui
+    将 socket pipe 和虚拟终端设备放入 /dev 目录相关文件夹下. 
+    I/O 系统初始化后, 不再自动创建 /var 目录, 需要 BSP 自行挂载.
+
+    2013-05-04: han.hui
+    在 include 目录下加入 arch 子目录, 存放所有平台相关的统一性头文件. 减少 bsp 部分的代码和文件.
+    pthread 加入常用的 UNIX 扩展接口.
+    支持 singal.h 支持 SA_RSTART. <webkit需要此类型信号句柄>
+
+    2013-05-02: han.hui
+    加入内存堆越界检查功能.
+
+    2013-04-28: han.hui
+    外部 C 库加入完整的网络库
+    支持标准 BSD 对网卡 ioctl 的操作.
+
+    2013-04-24: han.hui
+    加入 sys/uuid.h 符合 CDE 1.1 标准.
+    
+    2013-04-11: han.hui
+    内存泄露跟踪加入跟踪内核, 跟踪指定进程和跟踪所有选项.
+
+    2013-04-02: han.hui
+    增加若干 Qt/E 需要的标准 Linux 接口.
+
+    2013-03-30: han.hui
+    atomic 加入 swp 操作.
+
+    2013-03-25: han.hui
+    clock_gettime 加入对 CLOCK_THREAD_CPUTIME_ID 和 CLOCK_PROCESS_CPUTIME_ID
+
+    2013-03-17: han.hui
+    优化对以 MAP_SHARED 共享方式内存映射.
+    加入消息队列接收选项, 允许接收大消息自动截断.
+
+    2013-03-16: han.hui
+    系统回调集合中加入进程创建和回收的回调, IPC 内核模块将使用此回调.
+    根文件系统可以创佳普通文件, 这类文件主要用于 IPC.
+    加入专用 IPC 的阻塞方式, 同时 ThreadWakeUp.c 文件改为 ThreadWakeup.c U 改为小写 u.
+
+    2013-03-15: han.hui
+    增强对 linux 兼容性, 以支持 Qt 图形框架.
+    加入 pselect 支持.
+
+    2013-03-13: han.hui
+    加入 XSI IPC 对应的头文件, 开始支持 XSI IPC, 此功能通过 libxsiipc.ko 内核模块实现.
+
+    2013-03-12: han.hui
+    加入 open64 dirent64 等大文件兼容.
+
+    2013-02-22: han.hui
+    减少堆分段内存开销, 同时考虑引入外部堆管理算法接口.
+    对齐内存开辟加入 POSIX 标准支持.
+
+    2013-01-27: han.hui
+    加入 AODV 多播支持.  如果 SylixOS 如果作为自组网网关, 可支持远程组播代理.
+    AODV 子网内多播不使用 LSRR 选项, 而是用专用 UDP 单播隧道传输.
+
+    2013-01-23: han.hui
+    加入 NFS_CLIENT_PROTO 环境变量, 用户可通过此环境变量选择 tcp 或者 udp 作为 NFS 协议.
+    NFS_CLIENT_PROTO=tcp 则 mount -t nfs ... 将通过 tcp 连接服务器, NFS_CLIENT_PROTO=udp 则使用 udp 协议.
+    经测试, TCP 连接的 NFS 比 UDP 稍快. 但是很多 NFS 服务器不支持 TCP 方式.
+    /proc/version 文件内保存操作系统编译时间.
+    shell 遇到系统内建命令与执行文件重名的情况, 则优先运行文件.
+
+    2013-01-22: han.hui
+    chmod 命令支持 shell 通配符, 例如 * ?, 方便成批设置 mode.
+
+    2013-01-21: han.hui
+    加入 FAT 默认 uid gid 的设置功能.
+    loader 开始进行文件权限的判断, 没有权限, 文件将不能进行相关操作. 这样可以通过限制网络登陆用户的权限, 保证系统安全性.
+    shell 加入用户名和组名缓冲管理, ll 命令加入文件用户名和组名的显示.
+
+    2013-01-18: han.hui
+    加入 which 内建命令方便定位应用程序.
+    内建 FTP 服务器支持断点续传功能. (使用迅雷多线程下载测试)
+
+    2013-01-17: han.hui
+    加入对 BSD O_SHLOCK / O_EXLOCK 的支持.
+
+    2013-01-15: han.hui
+    远程登录时, 如果 60 秒内没有输入用户名或者密码, 则连接关闭.
+    增加简单路由操作接口. 为支持 Open/EmbeddedVPN 打下基础.
+
+    2013-01-11: han.hui
+    加入对 wait3 wait4 UNIX API 的支持.
+
+    2013-01-09: han.hui
+    加入 umask API
+   
+    2013-01-08: han.hui
+    在 fs 中加入一个为没有 inode 序列号的文件系统(FAT SMBA 等)提供唯一序列号的工具. 类似 LINUX 的处理方法.
+    FAT 卷控制块中将保存一个 hash 表, 这个表缓冲了所有已经操作过的文件以及操作时通过 inode 发生器分配的 inode,
+    所以, 不管何时, 只要是同样一个文件, 总可以获取一个唯一的, 永不变换的 inode 序列号. 
+
+    2013-01-06: han.hui
+    vfat romfs nfs yaffs 开始转向使用 NEW_1 型驱动, 以支持文件锁.
+
+    2013-01-05: han.hui
+    SylixOS 为了将数据库引擎从内核中移除, 开始支持文件记录锁, 但仅支持建议型锁, 强制锁根据需要未来在决定是否加入.
+
+    2013-01-04: han.hui
+    SylixOS 加入新的一种驱动程序模型(NEW_1), 主要是为了支持 UNIX 兼容系统的 vnode 功能, 
+    这样为 SylixOS 未来支持文件记录锁打好基础, 
+    SylixOS 可以同时支持多种驱动程序模型, 
+    ORIG 为 VxWorks 兼容驱动模型, 
+    NEW_1 为新一代驱动程序模型, 
+    SOCKET 为独立的 socket 模型, 
+    安装设备驱动时可以指定驱动程序的类型, 用户不可以建立 SOCKET 类型设备驱动.
+
+    2012-12-28: han.hui
+    加入 AF_UNIX 对文件描述符传送和进程证书传送的支持.
+
+    2012-12-26: han.hui
+    加入 POSIX 共享内存进程间通信, shm_open() 与 shm_unlink() 支持. (需要 mmap 进行映射)
+    SylixOS 目前支持的进程间通信有 POSIX 命名信号量, 管道, 消息队列, AF_UNIX socket 以及共享内存(/dev/shm).
+    父进程启动子进程时可以使用 posix 规定的 file_action 来传递相关通信文件参数.
+
+    2012-12-25: han.hui
+    加入内核空间标志, 这样 mount 的设备内如果使用文件, 则该文件存在于内核中, 所有进程都可以访问.
+
+    2012-12-24: han.hui
+    支持 posix 实时进程 file action.
+
+    2012-12-20: han.hui
+    开始加入每个进程独立的文件描述符管理. 同时支持 FD_CLOEXEC. 
+    子进程继承父进程除 FD_CLOEXEC 以为的所有文件描述符 (内部为跨进程 dup 处理)
+    进程 exec*() 调用时, 将关闭 FD_CLOEXEC 的文件, 其他文件保持不变.
+
+    2012-12-19: han.hui
+    加入 AF_UNIX 支持.
+
+    2012-12-18: han.hui
+    修正之前的 socket 层接口, 使用 sylixos 独立的 socket 接口方便加入 AF_UNIX 支持.
+
+    2012-12-13: han.hui
+    由于支持进程资源回收, 这里可以加入 posix 对象的静态初始化功能.
+
+    2012-12-12: han.hui
+    加入 posix 实时 spawn 接口, 尽管 file action 目前还没有支持, 但基本的操作已经完善.
+
+    2012-12-11: han.hui
+    已完成进程资源分类检查, 相关文档查看 doc/PROCESS 文本文件.
+
+    2012-12-10: han.hui
+    SylixOS 不再使用统一的环境变量, 而是每个进程有独立的环境变量, 同时进程环境变量通过补丁的 _start 符号初始化.
+    进程不存在 vppatch 或者补丁版本过低则不能运行.
+
+    2012-12-09: han.hui
+    加入进程树功能, 加入资源回收线程来回收孤儿(或僵尸)进程资源.
+
+    2012-12-07: han.hui
+    为所有进程结束需要回收的资源建立与资源管理表之间的关联.
+
+    2012-12-06: han.hui
+    加入一个资源管理器, 为以后实现资源回收做准备.
+    shell 如果执行可执行文件不过是否带有背景执行符号, 都执行背景运行, 无非是带有 & 为异步模式.
+
+    2012-11-21: han.hui
+    去掉了 O_TEMP 打开方式, 支持 open 后立即 unlink 直到 close 后才删除文件的操作.
+
+    2012-11-09: han.hui
+    在原先系统支持的重启功能上加入标准化的参数, 同时加入 shutdown 命令.
+
+    2012-10-31: han.hui
+    加入 /dev/random 和 /dev/urandom 随机设备的支持.
+
+    2012-10-25: han.hui
+    每个进程在创建时就拥有自己独立的进程相对路径, 不再受限于全局相对路径和单任务相对路径.
+
+    2012-10-23: han.hui
+    unistd.h 中加入 SylixOS 对 posix 支持的版本
+    加入对 unsetenv 的支持
+    不再使用外部 setjmp/longjmp 支持, SylixOS 自身以提供支持
+
+    2012-10-20: han.hui
+    加入完整的 strerror 支持.
+
+    2012-10-18: han.hui
+    printf 支持 %zd 格式, 复合 c99 标准. (Python使用此格式打印)
+    shell 运行程序支持 #! 类型的脚本.
+
+    2012-10-17: han.hui
+    加入了一些 POSIX 定义功能
+
+    2012-09-25: han.hui
+    各文件系统加入对 socket 文件的支持, 为未来支持 AF_UNIX 打好基础
+    
+    2012-09-22: han.hui
+    加入了 CPU IDLE ENTER 和 CPU IDLE EXIT 与 INT ENTER 和 INT EXIT 回调, 主要用于 CPU 的低功耗处理.
+
+    2012-09-21: han.hui
+    stdio 库加入了 __SALC 特性, 支持 asprintf 之类的函数
+    system io 系统中, 加入了 dirfd 函数
+    libc 中加入 statvfs(POSIX) 功能.
+
+    2012-09-21: han.hui
+    加入对 search.h 的支持.
+
+    2012-09-12: han.hui
+    ts 命令加入了 FPU 使用情况的显示
+
+    2012-09-11: han.hui
+    加入内核启动参数, 来决定内核与中断服务是否支持 FPU , 当然此选项需要配合编译器编译参数.
+    除非兼容老的项目, 新的项目不建议内核模块和中断服务加入浮点处理功能.
+
+    2012-09-05: han.hui
+    将 VMM 异常处理机制独立实现
+    
+    2012-08-30: han.hui
+    加入对 /etc/login.defs 的支持, 增加系统安全性.
+
+    2012-08-26: han.hui
+    /proc 文件系统加入进程信息.
+    /proc 文件系统支持符号链接.
+
+    2012-08-25: han.hui
+    修正进程创建接口参数分析的一处 bug.
+    加入背景运行 shell 命令的接口, 同时支持 popen() 与 pclose() 函数.
+
+    2012-08-24: han.hui
+    优化 spawn 接口, 支持 getpid() wait() 等进程函数.
+    支持向进程发送信号, 信号将发送至进程的主线程.
+
+    2012-08-21: han.hui
+    Sylvain Rochet 已经修改了 lwip-ppp-new 分支头文件位置与关系, sylixos 开始使用 ppp-new 分支
+    ppp-new 分支有以下文件与 master 分支不同: 
+    pppapi.c 
+    tcpip.c 
+    init.c 
+    memp.c 
+    etharp.c 
+    ethernetif.c
+    memp_std.h 
+    opt.h 
+    pppapi.h 
+    tcpip.h 
+    ppp 文件夹整体替换, 同时不使用 lwip 内部的 polarssl 算法库. 
+    针对 lwip 的 lwip_config.h 中 __LWIP_USE_PPP_NEW 定义是否使用 ppp-new 分支.
+    同时不再在内核中加入 ppp 命令, 转而使用独立的 ppp 模块完成.
+
+    2012-08-16: han.hui
+    为兼容性需要, 加入 sys/queue.h 头文件.
+    使用 file_operations 中 read_ex 与 write_ex 接口实现 pread 与 pwrite 操作.
+    各个文件系统开始支持 pread 与 pwrite 操作.
+
+    2012-08-08: han.hui
+    spinlock api 中加入 spinlock irq 的操作 api
+    
+    2012-08-06: han.hui
+    加入 usb 串口热插拔事件
+    tty 设备支持删除操作
+    
+    2012-07-30: han.hui
+    将所有 appl 中的虚拟机或者解释器引擎从 sylixos 内核中去除
+    编译成独立应用程序或者动态链接库即可
+    
+    2012-07-01: han.hui
+    mount 文件系统时, 支持 mount 只读文件系统
+
+    2012-06-27: han.hui
+    加入 romfs 支持, 可用于可靠廉价的只读存储器.
+    
+    2012-05-10: han.hui
+    posix 兼容层加入 dladdr api 可获得指定地址的符号信息.
+    主要用于 execinfo 库使用.
+
+    2012-04-26: han.hui
+    线程极端异常时, 将在全局 stderr 文件上打印寄存器表.
+   
+    2012-04-26: han.hui
+    系统 reboot 时, 需要运行内核模块的析构函数.
+
+    2012-04-12: han.hui
+    input_device 线程支持多点触摸.
+    
+    2012-04-12: han.hui
+    内核模块的安装和卸载必须拥有 root 权限.
+
+    2012-04-11: han.hui
+    虽然 sylixos 内部已经是 64 位文件操作, 但是还是引出 64 位文件 api
+
+    2012-04-01: han.hui
+    proc 文件系统加入实验性质的文件权限管理.
+    
+    2012-03-31: han.hui
+    加入多用户管理的尝试, 但多线程系统因为内核没有保护, 所以只能形似.
+    提供一组 unix 兼容的用户管理 api, shell 登陆进行改造, 完全适应新的用户管理
+    etc 下需要 passwd group shadow 文件支持.
+
+    2012-03-30: han.hui
+    加入启动线程并 join 线程的原子操作.
+
+    2012-03-30: han.hui
+    加入 spawn 系列函数, 可以直接创建虚拟进程.
+
+    2012-03-29: han.hui
+    修正升级 lwip 后需要改动的项目.
+    socket.c 中 tryget_sock() 可以不用定义.
+
+    2012-03-29: han.hui
+    ctype.h 中引出数组符号, 同时将 #define _? 宏引出, 这样兼容 newlibc
+
+    2012-03-24: han.hui
+    shell 输入时加入自动匹配补齐, 任意位置插入, 删除, 记录历史操作记录等功能.
+
+    2012-03-24: han.hui
+    加入内核启动参数功能, 可由 bootloader 提供启动参数.
+    
+    2012-03-23: han.hui
+    k_kernel.h 中加入 __sylixos_version=... 弱符号, 用于进行模块版本认证.
+    是由此头文件编译的模块将含有对应操作系统版本信息.
+    
+    2012-03-23: han.hui
+    更行 readme 文件. gcc 编译参数可不包含默认搜索路径.
+    
+    2012-03-23: han.hui
+    更新 loader, 加入模块版本检查环节, 没有通过版本检查的模块不允许装载.
+    同时关键的错误信息将通过 stdio 打印出来.
+    
+    2012-03-23: han.hui
+    更新 lwip 协议栈
+    
+    2012-03-23: han.hui
+    推荐 bsp 代码中或者 startup.sh 启动脚本中, 在根目录下加入 lib 符号链接
+
+    2012-03-23: han.hui
+    SylixOS 根目录中加入 CHANGELOG 文件.
+    
+++ Bugfixes:
+
+    2014-12-22: han.hui
+    修正 GDB Non-STOP 模式错误.
+    升级 LwIP SO_SNDTIMEO SO_RCVTIMEO 既支持 winsock 参数又支持 linux 参数.
+
+    2014-12-08: han.hui
+    修正 symlink 同名符号链接文件错误.
+    修正 tty 设备接收中断未释放 spinlock 错误.
+    
+    2014-12-03: han.hui
+    去掉内核 IPC 装态, 改为 JOIN 专用状态.
+    修正 GDB 无法停止 JOIN 状态的线程.
+    
+    2014-11-09: han.hui
+    MMU 的启停不再放在 VMM LIB 初始化中.
+    相应的 BSP 要做修改.
+    
+    2014-11-08: han.hui
+    支持 newlib 使用 SMP 模式获取任务上下文.
+
+    2014-11-06: han.hui
+    修正 SMP 调度器与内核锁之间冗余的关系.
+    
+    2014-11-01: han.hui
+    修正定时器创建对类型的判断错误.
+    
+    2014-10-12: han.hui
+    free 命令改为查看系统内存信息，vardel 为删除环境变量
+    修正 proc/net 下相关文件格式.
+    修正调试器退出错误.
+
+    2014-10-09: han.hui
+    修正 arp 发送 bug.
+    修正 dns 分析 bug.
+
+    2014-10-08: han.hui
+    重新设计 itimer 定时器符合 POSIX 标准, 可提供 REAL / VIRTUAL / PROF 定时器功能.
+
+    2014-09-29: han.hui
+    API_ModuleGetBase 加入长度参数.
+
+    2014-09-16: han.hui
+    加入 _DebugFormat 带参数的调试输出接口.
+
+    2014-09-09: han.hui
+    修正 Bug #8 http://bugzilla.sylixos.com/show_bug.cgi?id=8
+    
+    2014-09-03: han.hui
+    升级 lwip 调整 lwip 头文件目录.
+
+    2014-09-02: han.hui
+    修正 GDB 多线程调试问题.
+
+    2014-08-15: han.hui
+    malloc 等 heap 管理分配内存的最小对齐长度为 CPU 取数据最大了能对齐长度要求
+    ARM 处理器为 8 字节.
+    
+    2014-07-25: han.hui
+    内核虚拟空间的配置不再通过配置宏, 而是通过内核启动参数来配置.
+
+    2014-07-25: han.hui
+    修正 gdb 多线程调试一些问题.
+
+    2014-07-25: han.hui
+    升级 arm cache 底层管理, 解决 Invalidate 部分区域的问题.
+
+    2014-07-11: han.hui
+    修正内存对齐分配回收对伪段首判断的错误.
+
+    2014-07-10: han.hui
+    密码验证时间从 0 秒, 改为默认 1 秒.
+
+    2014-07-02: han.hui
+    修正 ip_route() 针对 ppp /slip 连接的路由问题.
+    
+    2014-05-29: han.hui
+    修正 msgqueue mutex 任务安全性问题.
+    去除多余的 _ErrorHandle(ERROR_NONE);
+    log thread 在第一次设置文件描述符时激活.
+    修正 ramfs truncate 扩大文件.
+
+    2014-05-23: han.hui
+    升级 lwip.
+    修正 armv7 系统 L1 cache 与 L2 cache 配合问题.
+
+    2014-05-21: han.hui
+    dtrace 支持异常暂停.
+    vprocess 加入对多级依赖动态库调试信息支持.
+
+    2014-05-20: han.hui
+    使 tty 设备删除更加安全.
+    进程判断退出操作更加快捷.
+    
+    2014-05-19: han.hui
+    修正 yaffs 创建符号链接权限错误.
+    
+    2014-05-13: han.hui
+    修正 dtrace 对 GDB 的支持.
+
+    2014-05-05: han.hui
+    修正对 Cortex A8 处理器 L2 cache 驱动.
+
+    2014-05-05: han.hui
+    修正 Bug #3.
+    
+    2014-05-03: han.hui
+    堆内存出错时, 打印堆的名字.
+
+    2014-05-02: han.hui
+    修正 netif lock 递归问题.
+
+    2014-04-21: han.hui
+    修正一些注释, 加入 PX_PRIORITY_CONVERT() 宏用来转换 SylixOS 优先级与 POSIX 优先级.
+    
+    2014-04-21: han.hui
+    升级中断系统, 加入对中断返回值的判断, 提升中断服务效率.
+    同一中断向量服务不能多次重复安装.
+    
+    2014-02-24: han.hui
+    升级 lwip 支持 TCP 窗口扩大选项.
+    修正 ping6 工具校验错误, 当前 ping6 程序已能够正常工作.
+
+    2014-01-17: han.hui
+    修正 SMP 系统任务状态改变 BUG.
+
+    2014-01-14: han.hui
+    升级 lwip.
+
+    2014-01-01: han.hui
+    SMP 多核系统 FPU 初始化分为主核从核两个接口.
+    
+    2013-12-20: han.hui
+    修正 MMU 共享写时拷贝技术的一处错误.
+    
+    2013-12-12: han.hui
+    更新整个中断向量管理系统, 更加高效, 功能更丰富.
+    修正信号系统对信号优先级判断错误.
+
+    2013-12-02: han.hui
+    修正调度器候选表锁的确认问题.
+    更新 select() 驱动程序端接口, 提高可靠性并简化接口设计.
+    实现 SMP 下通过核间中断请求改变任务状态的 API. SMP 系统任务删除与发送信号安全.
+
+    2013-11-28: han.hui
+    补齐 POSIX 定义的取消点.
+
+    2013-11-21: han.hui
+    AF_UNIX 原子发送最大改为 16 KB.
+    按照 POSIX XSI 扩展 siginfo 结构.
+
+    2013-10-03: han.hui
+    tty 设备 ioctl() 以更安全的方式设置缓冲区操作.
+    对于一些标志, 加入 SMP 内存屏障操作.
+
+    2013-09-26: han.hui
+    netdb error 不再使用 lwip 错误号, 而改为 BSD 兼容错误号.
+    
+    2013-09-21: han.hui
+    exec...() 系列函数不再创建新的主线程, 而是在当前主线程中加载新的可执行文件.
+
+    2013-09-12: han.hui
+    增加 ifconfig 与 arp 命令的安全性.
+    syslog 缓冲区设置为 1024, 与大多数系统相同.
+
+    2013-09-11: han.hui
+    SIGTSTP 为可屏蔽信号.
+
+    2013-09-10: han.hui
+    线程允许在安全模式下删除自己, 真正的删除操作将在线程退出安全模式时完成.
+    一些标准设备的互斥加入 DELETE_SAFE 选项, 这样的操作更加安全.
+    
+    2013-09-06: han.hui
+    AF_UNIX 域中, 修正 ECONNRESET 与 ECONNREFUSED 的使用.
+    unix_accept() 如果没有足够内存则拒绝当前等待的所有连接.
+
+    2013-09-05: han.hui
+    socket.c 中 SylixOS select 相关检测缺乏保护.
+
+    2013-08-23: han.hui
+    线程删除与重启使用更加安全的方式, 同时防止删除其他进程内的线程.
+
+    2013-08-14: han.hui
+    线程阻塞在文件记录锁时, 允许被删除.
+
+    2013-08-06: han.hui
+    修正 loader vmm shell 裁剪代码.
+
+    2013-07-29: han.hui
+    重新设计候选运行表, 加入抢占卷绕功能, 以适应 SMP 系统.
+
+    2013-07-22: han.hui
+    系统删除早期对 stream tty 设备的支持.
+
+    2013-07-08: han.hui
+    创造性的加入组播反向路径确认机制, 解决组播 AODV 单向连接的问题.
+
+    2013-06-24: han.hui
+    修正 fat chk_mount 的一处错误.
+    mount 产生的逻辑块设备物理指针不能为NULL.
+
+    2013-06-17: han.hui
+    信号上下文不会修改 errno.
+
+    2013-06-12: han.hui
+    pipe 设备针对 select() 写操作, 需要判断 PIPE_BUF 大小的原子操作性.
+
+    2013-06-09: han.hui
+    修正一些针对 -fsigned-char 的错误. 主要集中在 char 行比较语句上.
+
+    2013-05-21: han.hui
+    修正动态链接器 dso_handle 正确的用法.
+    loader 不再使用缓冲 IO, 没有起到提速的效果.
+    loader 导出符号表将不再产生大量内存分片, 而使用成块内存分配.
+    loader 查询符号使用 hash 表, 而不再使用数组.
+
+    2013-05-10: han.hui
+    修正 ftp 服务器非追加上传覆盖时, 没有清零源文件的错误.
+    修正 shell 设置带有数字的环境变量时会出错.
+    系统缺少物理页面, 进程应该收到 SIGKILL (9) 信号.
+
+    2013-05-07: han.hui
+    将 FD_SETSIZE 改为 2048, 并且内部已经处理了不同大小 FD_SETSIZE 应用程序的兼容问题.
+    修正 ptcb 的位置, 将 ptcb 放入专用的数组, 不再放在堆栈区.
+
+    2013-05-03: han.hui
+    pthread_create() 如果存在 attr 并且 attr 指定的堆栈大小为 0, 则继承创建者的堆栈大小.
+    FIONREAD 和 FIONWRITE 第三个参数是 int 类型.
+
+    2013-05-02: han.hui
+    修正 pthread_key destructor 调用的错误.
+
+    2013-05-01: han.hui
+    POSIX 规定的 pthread 库返回值为 errno.
+    
+    2013-04-29: han.hui
+    发现一处 lwip bug, 此 bug 造成 qt 网络系统不正常, 已上报 (bug:38853)
+
+    2013-04-23: han.hui
+    升级 lwip.
+
+    2013-04-19: han.hui
+    AODV 根据 PC 仿真, 修正了若干 BUG.
+
+    2013-04-16: han.hui
+    AODV 更新路由表是单向连接不发送缓冲数据包.
+    网卡移除时需要删除 dhcp 结构.
+    修正 AODV 代码格式.
+
+    2013-04-11: han.hui
+    正常卸载 FAT 卷时 uniq 发生器没有卸载.
+
+    2013-04-09: han.hui
+    条件变量创建时不应判断有效性.
+
+    2013-03-31: han.hui
+    动态链接库不再需要强制检查版本.
+
+    2013-03-29: han.hui
+    修正 memset 一处 bug.
+    修正 unix_listen 返回值错误.
+    修正 unix_get/setsockopt 一处缺少 break.
+    正常的缺页中断不应该改变 errno 的值.
+    修正 rootfs 一些创建错误.
+
+    2013-03-18: han.hui
+    修正 POSIX mqueue 的原子性.
+
+    2013-03-17: han.hui
+    更新 pid 生成算法.
+
+    2013-03-13: han.hui
+    将 PSIGNAL_HANDLE 改为 BSD 与 LINUX 定义的 void (*)(int) 类型.
+    优化 shm 设备对物理内存的使用.
+
+    2013-02-22: han.hui
+    因为每个进程有自身独立的文件描述符表, 所以内核中的异步 I/O 只能为内核任务服务, 不为进程模式服务.
+    在 SylixOS 外部 C 库(cextern.so) 中加入 aio 服务, 使每个进程使用自己的异步 I/O 系统.
+
+    2013-02-21: han.hui
+    aodv 多播转发时如果 revt 是上行链路则不再转发上行.
+
+    2013-01-24: han.hui
+    开始测试 AODV 无线自组网协议. 修正一些遗留的错误.
+
+    2013-01-22: han.hui
+    NFS 客户端默认绑定特权端口, 这样就可以以默认方式连接一般的 Linux/Mac NFS 服务器.
+
+    2013-01-21: han.hui
+    修正 yaffsfs.c 源码, 在创建文件和创建 dir 时需要设置正确的 uid 与 gid.
+    修正 yaffs_chmod 支持设置 SUID 和 SGID 标志位.
+
+    2013-01-20: han.hui
+    修正一处 SO_ERROR 对于 select 结果的设置错误.
+    BSD socket 规定, 凡是 NONBLOCK IO 类型的 socket select 之后通过 SO_ERROR 获取的一定是最新的状态,
+    应用程序通过此错误号来判断当前 socket 的状态.
+    修正 AF_UNIX 的一处 ERRNO 设置. 
+
+    2013-01-18: han.hui
+    修正对于 dlopen 使用 LOCAL 方式装载动态库, 此动态库还有依赖的动态库时, 
+    依赖的库必须以 GLOBAL 方式装载方能找到对应的符号.
+    修正 FAT NFS 在以只读方式挂载时, 没有拦截一些具有改写磁盘可能的操作.
+
+    2013-01-16: han.hui
+    修正 AF_UNIX 发送大数据时, 对于管道的可写判断问题.
+
+    2013-01-15: han.hui
+    dlopen 和 dladdr 支持从当先环境获取进程控制块, 进程补丁不再需要这两个函数.
+    由于内核的升级, 此时可以极大的简化进程补丁的功能.
+    遇到需要退出的信号, 不管是否有用户安装句柄, 信号返回时都必须立即退出.
+    修正 shell kill 命令带有 -n 参数时, 对进程号的获取错误.
+
+    2013-01-12: han.hui
+    确保进程入口从 _start 到 main 的过程使用的是主模块的 main 函数.
+
+    2013-01-10: han.hui
+    按照 POSIX 的要求, 在一些指定的 api 入口出加入了线程取消点.
+    修正 FTP 服务器 LIST 命令发送缓冲大小, 以便发送超长文件名, 同时修正 LIST 模式字段的格式.
+
+    2012-12-23: han.hui
+    由于实现了进程独立的文件描述符, 所以任务的删除回调与 cleanuppop 和 任务重启回调等均要在当前任务执行, 然后在进行异步删除.
+
+    2012-12-22: han.hui
+    修正之前一些进程原始资源回收时关闭文件的 BUG. 这里由于实现了进程独立的文件描述符表, 非本进程不可以操作文件描述符表
+    所以资源回收器或者父系进程不能直接关闭这些需要回收的资源内部的文件, 所以只回收资源本身即可, 文件的关闭放在进程 IO 回收中统一处理.
+
+    2012-12-20: han.hui
+    修正 1.0.0.rc35 版本一些进程启动失败时处理的 BUG.
+
+    2012-12-13: han.hui
+    修正一处内存泄露跟踪器的 bug.
+    shell 首先判断是否存在对应的可执行文件在创建 exec, 防止频繁的创建删除任务.
+    
+    2012-12-10: han.hui
+    kill 命令当输入的不是线程 id 时, 需要转换成 10 进制的进程 id
+
+    2012-12-08: han.hui
+    将 fat 文件系统注册为 vfat 因为支持长文件名等扩展属性.
+    之前的 mutex 支持递归, 加入 mutex 递归时可选择错误.
+    修正 mount 文件虚拟磁盘时, 需要过滤 ioctl 命令.
+
+    2012-12-06: han.hui
+    操作系统所有内核对象都要加入 GLOBAL 避免进程回收资源时被回收.
+    
+    2012-11-13: han.hui
+    发现 linux tree 工具 read_dir() 函数可能出现内存越界, 即 lbufsize 和 lbuf 内存的长度不一致, 所以 yaffs 的读取符号链接的函数需要修改.
+    详细情况, 请见 yaffsfs.c 中 yaffs_readlink 函数.
+
+    2012-11-12: han.hui
+    realloc() 不能操作带有指定对齐方式的内存.
+
+    2012-11-09: han.hui
+    readlink 返回连接目标长度 (不包括 '\0'), 返回的结果也不包括 '\0'
+
+    2012-10-31: han.hui
+    修正系统默认的 PATH 与 LD_LIBRARY_PATH 路径.
+
+    2012-10-24: han.hui
+    文件描述符内保存的名字不是打开时的参数, 而是这个文件的绝对路径名.
+
+    2012-10-23: han.hui
+    解决 SMP 系统发送信号时, 如果目标线程在另外一个 CPU 上正在执行时的 BUG
+
+    2012-10-22: han.hui
+    修正 strchr 搜索 \0 返回 NULL 的错误.
+
+    2012-10-20: han.hui
+    修正 I/O 系统 errno , 使其符合 POSIX 要求, 这样就可以兼容更多的软件, 其他 SylixOS 私有 errno 则保留.
+
+    2012-10-19: han.hui
+    加入文件描述符引用计数, 例如 mmap 后可以关闭文件, 直到 munmap 时才会自动关闭.
+ 
+    2012-10-19: han.hui
+    如果环境变量被直接引用过, 例如 getenv() 则设置新的值时, 不释放先前的内存.
+
+    2012-10-17: han.hui
+    pthread_cond_signal() 如果没有任务 wait 则不发送信号量.
+
+    2012-09-29: han.hui
+    获取模块信息更加详细与易读
+    
+    2012-09-28: han.hui
+    升级 lwip.
+    lwip 移植代码支持双向阻塞队列, 大幅度提高网络传输速度的恒定性.
+
+    2012-09-22: han.hui
+    statfs 中加入 f_flag 选项.
+
+    2012-09-20: han.hui
+    修正 cdefs.h 和 cdefs_elf.h 和 compiler.h 以兼容大量的 BSD 应用程序.
+    在 vpmpdm 补丁中, 将不可重入的全局内存函数封装到进程地址内. 这样更加安全
+
+    2012-09-13: han.hui
+    操作系统不再接管未定义指令中断, bsp 遇到此异常时需要判断是否为 FPU 指令, 并做相关处理.
+    如果不是, 则发送 SIGILL 信号.
+    
+    2012-09-11: han.hui
+    支持产生未定义指令异常时才激活对应任务的 FPU 切换功能.
+
+    2012-09-06: han.hui
+    修复了 FPU 上下文保存的问题, 不近任务见切换时要切换 FPU 上下文, 
+    进入中断时同样要先保存被中断任务的 FPU 上下文, 退出最后一级中断时也需要恢复当前任务的 FPU 上下文
+    如果退出中断产生的任务调度, 则在 sw_hook 移植代码中恢复新执行任务的 FPU 上下文,
+    如果中断产生了嵌套, 则需要保存上一级中断的 FPU 上下文, 退出本次中断, 则应恢复上一级中断的 FPU 上下文
+
+    2012-09-01: han.hui
+    加入设备时, 名字重复不需要打印错误信息, oemDisk 需要这个错误来判断卷标号.
+    注意, 所有可以动态添加与卸载的设备, 必须在 hotplug 线程的上下文中串行的执行, 包括 oemDisk 的操作.
+    devs 命令加入对设备打开数量的显示.
+    umount 操作支持普通可卸载的卷.
+    oemDisk 操作支持非强迫卸载设备. 强烈建议卸载可移动设备时, 先调用 umount 卸载, 如果文件占用, 不要强行卸载.
+
+    2012-08-28: han.hui
+    更新 CPU 利用率 API
+    升级 proc 文件系统删除算法, 支持推迟自动卸载.
+
+    2012-08-27: han.hui
+    修正 romfs 再删除链接文件重定位是的一处 bug.
+
+    2012-08-10: han.hui
+    can 总线产生错误时, 需要激活读写等待线程,
+    stream, tty, can 对 buffer 的清空操作, 使用 clear 接口.
+    打开 stream 和 tty 文件时, 需要清空收发缓冲
+
+    2012-08-08: han.hui
+    将所有 UnLock 拼写换成 Unlock (BSP 中, cache 的初始化结构赋值需要修改)
+
+    2012-07-25: han.hui
+    将 _DebugHandle 和 _ErrorHandle 编程函数, 极大地缩减了内核的体积
+
+    2012-07-10: han.hui
+    修正 input_device 一处多点输入 bug.
+    
+    2012-07-04: han.hui
+    升级 lwip.
+
+    2012-06-29: han.hui
+    修正了之前从来没有处理过 stat 中 st_dev 和 st_ino 的错误.
+    修正了 yaffs direct 接口 yaffs_readlink() 函数的一处 BUG. 同时已上报至 yaffs mail list.
+
+    2012-06-29: han.hui
+    修改了一些符号链接上的小错误.
+
+    2012-06-18: han.hui
+    修正 posix 接口线程优先级数字越大, 优先级越高.
+
+    2012-04-11: han.hui
+    umount 判断设备卸载失败时, 不 umount 节点.
+
+    2012-03-29: han.hui
+    修正 route 打印 aodv 路由表时, hcnt > 0 就被认为是网关.
+
+    2012-03-29: han.hui
+    更新合成绝对路径的一处 BUG.
+    
+    2012-03-27: han.hui
+    修正了一些内建 shell 命令微小的错误.
+    修正了 t_ptyproc 线程的一些小错误.
+    调整了系统对 FIFO 调度的一些细节.
+    
+(1.0.0-rc1)

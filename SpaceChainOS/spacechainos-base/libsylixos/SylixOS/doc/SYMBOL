@@ -1,0 +1,25 @@
+10:59 2009-9-29
+
+--SylixOS--
+
+  SylixOS 系统符号表工具:
+
+  SylixOS 支持动态加载/卸载模块的功能, 即先将操作系统的执行镜像(libsylixos + BSP)下载到目标系统执行, 
+
+  然后可以动态的将 应用程序/动态链接库/内核模块 (可重定位的ELF模块) 装载入目标系统执行.
+
+
+  在 sylixos 可执行镜像中加入系统 API 符号表的步骤:
+
+1: 编译 libsylixos 工程, 编译完毕后将生成一个 libsylixos.a 的静态链接库.
+
+2: 将 libsylixos.a 拷贝到 hosttools/makesymbol 目录下, 运行 makesymbol.bat 将生成 symbol.c 和 symbol.h 文件.
+
+3: 将 symbol.c 和 symbol.h 文件加入 bsp 工程内, 并在启动文件中调用 symbol.h 文件中声明的注册符号函数.
+
+4: 编译 bsp 工程 (链接时需要 libsylixos.a 库文件) 得到可执行操作系统镜像, 生成的可执行镜像中就包含操作系统 API 符号表.
+
+5: 将操作系统可执行镜像下载到目标系统. 然后就可以通过 API 或者 shell 命令来装载可执行模块 (可重定位的ELF程序)
+
+ 
+

@@ -1,0 +1,5 @@
+运行 makelitesymbol.bat(windows)或者 makelitesymbol.sh(linux) 批处理程序, 
+参数1是源文件的路径(即 bsp 工程的elf镜像文件),
+参数2是目的文件的路径(即 bsp 工程的符号表文件),
+把生成的 bsp 工程的符号表文件复制到 extension 工程的根目录, 
+extension 工程的的链接脚本再通过 INCLUDE 指令包含该 bsp 工程的符号表文件.

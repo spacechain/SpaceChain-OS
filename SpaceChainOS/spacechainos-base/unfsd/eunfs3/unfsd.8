@@ -1,0 +1,394 @@
+.\"
+.\" (C) 2008, Pascal Schmidt
+.\"
+.TH unfsd 8 "05 Jan 2008"
+.SH NAME
+unfsd \- NFS server process
+.SH SYNOPSIS
+.BI "/usr/sbin/unfsd [" options "]"
+.SH DESCRIPTION
+The
+.B unfsd
+program implements the MOUNT and NFS version 3 protocols. It listens for
+client requests, performs them on the local filesystem of the server, and
+then returns the results of the operations to the clients.
+.P
+At startup,
+.B unfsd
+reads the exports file,
+.I /etc/exports
+by default, to find out which directories are available to clients
+and what options are in effect (see
+.B EXPORTS FILE
+section below for syntax and possible options).
+.P
+Normally, 
+.B unfsd
+should be run as the
+.B root
+user. It will then switch its effective
+user and group id to the numbers listed in incoming NFS requests. This
+means filesystem operations will be performed as if done by a local
+user with the same ids. If the incoming request is for user or group
+id 0 (meaning
+.BR root "), " unfsd
+will switch to the user and group id of the
+.B nobody
+user before performing filesystem operations (this is known as
+.BR "root squashing" ")."
+If the user
+.B nobody
+does not exist on the system, a user and group id of 65534 will be used.
+This behavior can be modified by use of the
+.B no_root_squash
+and
+.B all_squash
+options in the exports file as well as the
+.B anonuid
+and
+.B anongid
+options on a per-share basis.
+.P
+If
+.B unfsd
+is running as a normal unprivileged user, no switching of the effective
+user and group id will take place. Instead, all filesystem operations
+will be performed with the id of the user running
+.BR unfsd .
+.SH RESTRICTIONS
+Some NFS clients may attempt to perform operations that
+.B unfsd
+cannot fully support.
+.TP
+.B "Object Creation"
+When creating filesystem objects, it is only possible to specify the
+initial mode for the object. The initial user and group ownership,
+object size, and timestamps cannot be specified and will be set to
+default values.
+.TP
+.B "File Locking"
+The network lock manager (NLM) protocol is not supported. This means that
+clients may have to mount with special mount options, disabling locking
+on the mounted NFS volume (nolock for Linux clients).
+.SH OPTIONS
+.TP
+.B \-h
+Display a short option summary.
+.TP
+.BI "\-e " "\<file\>"
+Use the given file as the exports file, instead of using
+.IR /etc/exports .
+Note that the file needs to be specified using an absolute path.
+.TP
+.BI "\-i " "\<file\>"
+Use the given file as pid file. When the daemon starts up, it will
+write its pid (process id) to the given file. Upon exit, the daemon
+will remove the file. Failure to create or remove the pid file is
+not considered fatal and only reported to syslog.
+.TP
+.B \-u
+Use an unprivileged port for NFS and MOUNT service. Normally,
+.B unfsd
+will use port number 2049, which is the standard port for NFS.
+When this option is in effect, arbitrary ports chosen by the RPC library
+will be used. You may need to use this option when running
+.B unfsd
+from a normal user account.
+.TP
+.BI "\-n " "\<port\>"
+Use the specified port for the NFS service.
+.TP
+.BI "\-m " "\<port\>"
+Use the specified port for the MOUNT service. The default is to
+use port number 2049, the same as for the NFS service. You can use
+the same port for both services if you want.
+.TP
+.B \-t
+TCP only operation. By default,
+.B unfsd
+provides its services to clients using either UDP or TCP as communications
+protocol. When this option is present, only TCP connections are
+serviced.
+.TP
+.B \-p
+Do not register with the portmapper. This will prevent other hosts from
+finding out the port numbers used for the MOUNT and NFS services by
+querying the portmap daemon. Clients
+will need to manually specify the port numbers to use (on Linux clients,
+use the
+.BR mountport " and " port
+mount options).
+.TP
+.B \-c
+Enable cluster extensions. This feature is only available when
+.B unfsd
+was compiled with cluster support. When this option is enabled, so-called
+tagged files are handled differently from normal files, making it possible
+to serve different file contents to different clients for the same filename.
+See
+.BR tags (7)
+for a description of tagged files. This option causes a performance hit.
+.TP
+.BI "\-C" "\ <path>"
+Limit the use of cluster extensions to a list of colon-seperated
+directories. When this option is present, the performance hit caused by
+clustering extensions only applies to the listed directories and their
+subdirectories.
+.TP
+.B \-s 
+Single user mode; activate basic uid translation. This option is
+useful when the server and client are using different user and group
+ids. All requests from the client will be served from the user id that started 
+.B unfsd, 
+no user id switching will take place (even if unfsd was started by
+root).
+Ownership is reported as follows: files belonging to the user id 
+running
+.B unfsd
+will look as if they are owned by the client's user. Other files will
+look as if they are owned by root. The same principle applies to
+group ownership.
+.TP
+.B \-b
+Enable brute force file searching. Normally, when you rename a file
+across several directories on an NFS volume, the filehandle for that
+file becomes stale. When this option is enabled,
+.B unfsd
+will attempt a recursive search on the relevant server filesystem to
+find the file referenced by the filehandle. This can have a huge
+performance impact as this will also happen for files that were
+really deleted (by another NFS client) instead of moved, and cannot be found.
+.TP
+.B \-l <addr>
+Bind to interface with specified address. The default is to bind to
+all local interfaces. 
+.TP
+.B \-d
+Debug mode. When this option is present,
+.B unfsd
+will not fork into the background at startup, and all messages that
+would normally go to the system log go to stdout instead.
+.TP
+.B \-r
+Report unreadable executables as readable. This applies both to
+returned attributes and ACCESS requests. Please note that READ
+requests for unreadable executables are always allowed, if 
+.B unfsd 
+is running as root, regardless of this option.
+.TP
+.B \-T
+Test exports file and exit. When this option is given,
+.B unfsd
+will try to parse the exports file and exit with status 0 if this
+is successful. If there is a syntax error in the exports file,
+a message is printed on standard error and
+.B unfsd
+exits with status 1.
+.SH SIGNALS
+.TP
+.BR "SIGTERM " "and " SIGINT
+will cause
+.B unfsd
+to unregister itself from the portmapper and exit.
+.TP
+.B SIGHUP
+will cause
+.B unfsd
+to re-read its configuration data. Currently, this means the program
+will query the
+.I passwd
+database to find out the user and group id of user
+.BR nobody .
+.B unfsd
+will also attempt to reload the exports file. If the exports file
+contains errors,
+.B unfsd
+sends a warning message to the system log and nothing is exported until
+the situation is corrected and another
+.B SIGHUP
+is sent.
+.TP
+.B SIGUSR1
+will cause
+.B unfsd
+to output statistics about its filehandle and file descriptor cache
+to the system log. For the filehandle cache, it will output the number
+of filehandles in the cache, the total number of cache accesses, and the
+number of hits and misses. For the file descriptor cache, it will output
+the number of currently held open READ and WRITE file descriptors.
+.SH "EXPORTS FILE"
+The exports file,
+.I /etc/exports
+by default, determines which directories on the server can be accessed
+from NFS clients. An example:
+
+.nf
+# sample NFS exports file
+/home            trusted(rw,no_root_squash) (ro)
+"/with spaces"   weirdo
+/usr             1.2.3.4(rw) 192.168.2.0/24(ro,all_squash)
+/home/foo        bar(rw) 10.0.0.0/255.0.0.0(root_squash)
+/home/joe        joes_pc(anonuid=1100,anongid=1100,rw,all_squash)
+.fi
+
+Comments start with a # character and cause the rest of the line to be
+ignored. Extremely long exports can be split across multiple lines by
+escaping the intermediate newlines with a backslash character.
+.P
+Each line starts with a directory that is to be exported. If
+the directory name contains whitespace, it must be enclosed in double
+quotes. To the right of the directory name, a list of client
+specifications can be given. If this list is missing, the directory
+is exported to everyone, using default options
+.RB ( ro " and " root_squash ")."
+.P
+If the directory name contains symbolic links, they are expanded. This
+means that you have to force
+.B unfsd
+to reload the exports file if the symlinks happen to change.
+.P
+Clients can be specified using either a hostname, an IP address, or
+an IP network. Networks can be given by specifying the number of leading 1
+bits in the netmask or by giving the full netmask. If the hostname is
+empty, the directory is exported to everyone.
+.P
+Options can follow a client specification and have to be enclosed
+in parenthesis, with the opening paren directly following the client
+name or address. If no options are given,
+.B ro
+and
+.B root_squash
+are enabled by default. The following options are supported by
+.BR unfsd :
+.TP
+.B root_squash
+Enable root squashing, mapping all NFS request done with a user id of
+0 to the user id of the
+.B nobody
+user. This option is enabled by default.
+.TP
+.B no_root_squash
+Disable root squashing. When this option is present, NFS requests done
+with a user id of 0 will be done as the
+.B root
+user of the server, effectively disabling all permissions checks.
+.TP
+.B all_squash
+Squash all users. When this option is present, all NFS requests will
+be done as the
+.B nobody
+user of the server.
+.TP
+.B no_all_squash
+Don't squash all users. This option is enabled by default.
+.TP
+.B rw
+Allow read and write access on the exported directory. When this option
+is present, clients are allowed to modify files and directories on
+the server.
+.TP
+.B ro
+Allow only read access on the exported directory. When this option
+is present, clients are not allowed to modify files and directories
+on the server. This option is enabled by default.
+.TP
+.B anonuid/anongid
+Sets the uid and gid for anonymous mounts for this share - by default the
+uid for nobody will be used, but using these options you can change this
+on a per-share basis.
+.TP
+.B secure
+Allow only mount requests coming from a source port below 1024. Using
+these ports requires super-user privileges on many operating systems.
+This option is enabled by default.
+.TP
+.B insecure
+Allow mount requests coming from any source port.
+.TP
+.B removable
+Consider this directory to be on a removable medium. When this option
+is present,
+.B unfsd
+will not keep files open across multiple read or write requests. This
+allows unmounting of the underlying filesystem on the server at any time.
+Also, 
+.B unfsd
+will not require that the exported path exists at startup or mount
+time. If the path does not exist, an empty directory will be presented
+to the client. This is useful for exporting mount points handled by
+autofs. 
+.TP
+.B fixed
+Consider this directory to be on a fixed medium. This options is enabled
+by default and allows
+.B unfsd
+to keep files open between multiple read or write requests.
+.TP
+.B password=<password>
+To be able to mount this export, the specified password is
+required. The password needs be given in the mount request,
+as in "mount yourhost:@password:gazonk/tmp /mnt". One time passwords
+are also supported. When using passwords, the file handles
+will include a hash of the password. This means that 
+.B if you change the password, all clients will need to remount this export. 
+See the file "doc/passwords.txt" in the source for more information.
+.PP
+If options not present on this list are encountered by
+.BR unfsd ,
+they are silently ignored.
+.SH BUGS
+There are a few possible race conditions with other processes on the
+server. They can happen if
+.B unfsd
+is performing an operation on a filesystem object while another
+process is simultaneously first (a) removing the object and then (b)
+creating a new object of the same name. If this happens,
+.B unfsd
+will attempt to perform the operation on the wrong, new object.
+The time window in which this can happen is small.
+.PP
+When a client does a CREATE EXCLUSIVE procedure call,
+.B unfsd
+stores the verifier data in the mtime and atime attributes of the
+created file. Malicious processes on the server could manipulate
+those attributes, breaking the semantics of the exclusive create
+operation. A process attempting to do so would need to be able
+to see the NFS network traffic.
+.PP
+unfsd always uses the "nohide" semantics, which means that clients
+will see all file systems mounted below the exported path. However,
+some NFS clients do not cope well with this situation as, for
+instance, it is then possible for two files in the one apparent
+filesystem to have the same inode number. To avoid this, make sure
+that the client mounts each exported file system. 
+.PP
+Due to the way
+.B unfsd
+operates, it needs execute (lookup) and read permission on all directories
+from the root directory all the way up to exported directories.
+For example, if
+.I /usr/share
+is exported,
+.B unfsd
+is going to need permission for
+.IR / ", " /usr ", and " /usr/share .
+Since root squashing can be in effect,
+.B unfsd
+may run as the nobody user, which normally means having to grant
+execute (lookup) and read permission for everybody on the server.
+In the above example,
+.B unfsd
+also needs permission to access
+.IR /usr/share/.. ,
+which can be different from
+.I /usr
+for some special setups (for example when using bind mounts under
+Linux).
+.SH FILES
+.TP 20
+.I /etc/exports
+Default exports file.
+.SH AUTHOR
+Pascal Schmidt
+.SH "SEE ALSO"
+.BR tags (7)

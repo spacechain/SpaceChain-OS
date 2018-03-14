@@ -1,0 +1,44 @@
+BSD:
+------------
+SylixOS locale 库是从 BSD 系统移植而来, 所以这里兼容的文件格式为 BSD 系统文件格式.
+
+由于 SylixOS 不支持静态初始化锁对象, 所以所有 INITIALIZER 的地方, 都需要使用构造和析构函数处理, 与 unixodbc 移植相同.
+
+详细情况见 sys/posix_initializer.h
+
+#define SYLIXOS_INITIALIZER_MUTEX(mutex)    \
+        __attribute__((constructor)) static void __init_mutex_fix_##mutex (void) \
+        {   \
+            pthread_mutex_init(&mutex, (void *)0); \
+        }   \
+        __attribute__((destructor)) static void __deinit_mutex_fix_##mutex (void) \
+        {   \
+            pthread_mutex_destroy(&mutex); \
+        }
+		
+可以搜索 SYLIXOS_INITIALIZER_MUTEX , 来了解以上宏的用法
+
+utmpx.c 中使用 fork + execl 的程序改为 spawn 调用.
+
+------------
+1: Makefile 中 locale 的宽字符操作使用 multibyte_amd1.c 和 multibyte_c90.c 而不是用 multibyte_sb.c
+
+2: 这里使用 WITH_RUNE 的支持, 所以源文件以 _sb 结尾的都不编译.
+
+------------
+1: herror.c 中加入 
+   int *__h_errno(void);
+   const char *hstrerror(int err); 
+        声明.
+        
+2: isc 中对 libbind 的依赖从 libbind 中剥离出来放在 C 库中.
+
+3: port_after.h 中加入 
+/* SylixOS add */
+#define PORT_NONBLOCK O_NONBLOCK
+
+3: uuid_stream.c 中将 #include <machine/endian.h> 改为 #include <endian.h>
+
+------------
+1: gethostbyaddr(const char *addr, 改为 const void *addr 符合 posix
+
