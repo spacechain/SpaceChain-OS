@@ -5,3 +5,5 @@ https://1drv.ms/u/s!AmoDU7XUKJnSgo9POHQCNMh2fihpfg
 2 Baidu Drive:
 https://pan.baidu.com/s/1SHGLClGfojoC0x3AUxKuPQ
 Password: rqbg
+
+Please use SpaceChain.elf replace the old elf file.
