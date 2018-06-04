@@ -7,5 +7,5 @@ Operating System (RTOS) and the Qtum blockchain software, as well as
 open source libraries and sub-components.
 
 This was produced by the SpaceChain Foundation, in conjunction with
-its partner Sylix.
+its partner SylixOS.
 
