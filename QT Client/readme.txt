@@ -1,0 +1,1 @@
+./qtum-qt.exe -testnet &
